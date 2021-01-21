@@ -1,10 +1,10 @@
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
-
+import {createRoles} from './libs/initialSetup'
 import authRoutes from './routes/auth.routes'
 const app = express()
-
+createRoles();
 
 app.use(morgan('dev'));
 
