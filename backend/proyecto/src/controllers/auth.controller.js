@@ -4,12 +4,31 @@ import config from '../config'
 import Role from '../models/Role'
 var mongoose = require('mongoose'); 
 
+export const deleteUserfromAdmin = async(req,res)=>{
+    //var doc = {"_id":ObjectId("600a7fa59a7ef15958edb858"),"roles":ObjectId("60091fbf93768e135889caa0")}
+        var {idusuario} = req.params
+        let filter = {"_id":mongoose.Types.ObjectId(idusuario),"roles":mongoose.Types.ObjectId("60091fbf93768e135889ca9f")}
+            let user = await User.findOne(filter)
+            if(user!=null){
+                const deleteUser = await User.deleteOne(user)
+                return res.status(200).json({message:"Usuario deleted"})
+            }
+            else{
+                return res.status(400).json({message:"Admin not eliminate an Superadmin"})
+            }
+}
+
 export const deleteUserfromSuperAdmin = async(req,res)=>{
     var {idusuario} = req.params
      let filter = {"_id":mongoose.Types.ObjectId(idusuario)}
      let user = await User.findOne(filter)
-     const deleteUser = await User.deleteOne(user)
-     return res.status(200).json({message:"Usuario deleted"})
+     if(user!=null){
+        const deleteUser = await User.deleteOne(user)
+        return res.status(200).json({message:"Usuario deleted"})
+     }
+     else{
+        return res.status(400).json({message:"User doesn't exist"})
+     }
 }
 
 export const signUp = async(req,res)=>{
