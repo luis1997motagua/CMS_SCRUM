@@ -2,7 +2,10 @@ import  User from '../models/User'
 import jwt from 'jsonwebtoken'
 import config from '../config'
 import Role from '../models/Role'
+import bcrypt from 'bcryptjs'
 var mongoose = require('mongoose'); 
+
+
 
 export const deleteUserfromAdmin = async(req,res)=>{
     //var doc = {"_id":ObjectId("600a7fa59a7ef15958edb858"),"roles":ObjectId("60091fbf93768e135889caa0")}
@@ -29,6 +32,19 @@ export const deleteUserfromSuperAdmin = async(req,res)=>{
      else{
         return res.status(400).json({message:"User doesn't exist"})
      }
+}
+
+export const changePassword = async(req,res)=>{
+    const {email,password} = req.body
+    let filter = {"email":email}
+    let update = {"$set":{"password": await User.encryptPassword(password)}}
+    const resultupdate = await User.updateOne(filter,update);
+    if(resultupdate){
+        res.status(200).json({message:"password changed"})
+    }else{
+        res.status(400).json({message:"there is a problem here"})
+    }
+
 }
 
 export const signUp = async(req,res)=>{

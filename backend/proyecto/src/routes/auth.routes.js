@@ -6,5 +6,6 @@ router.post('/signin',[authJwt.verifyToken,verifySignup.checkRolesExisted],authC
 router.post('/signup-user-from-admin',[authJwt.verifyToken,authJwt.isAdmin,verifySignup.checkDuplicateUsernameorEmail],authCtrl.signUp)
 router.post('/signup-superadmin',verifySignup.checkDuplicateUsernameorEmail,authCtrl.signUp)
 router.delete('/remove-user/:idusuario',[authJwt.verifyToken,authJwt.isSuperAdmin],authCtrl.deleteUserfromSuperAdmin);
+router.put('/change-password',authCtrl.changePassword)
 router.delete('/remove-user-from-admin/:idusuario',[[authJwt.verifyToken,authJwt.isAdmin]],authCtrl.deleteUserfromAdmin)
 export default router;
