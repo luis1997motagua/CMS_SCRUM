@@ -2,6 +2,16 @@ import  User from '../models/User'
 import jwt from 'jsonwebtoken'
 import config from '../config'
 import Role from '../models/Role'
+var mongoose = require('mongoose'); 
+
+export const deleteUserfromSuperAdmin = async(req,res)=>{
+    var {idusuario} = req.params
+     let filter = {"_id":mongoose.Types.ObjectId(idusuario)}
+     let user = await User.findOne(filter)
+     const deleteUser = await User.deleteOne(user)
+     return res.status(200).json({message:"Usuario deleted"})
+}
+
 export const signUp = async(req,res)=>{
    
         const {username,email,password,roles} = req.body;
@@ -26,6 +36,7 @@ export const signUp = async(req,res)=>{
       
  
 }
+
 
 export const signIn = async(req,res)=>{
     const userFound = await User.findOne({email:req.body.email}).populate("roles");
