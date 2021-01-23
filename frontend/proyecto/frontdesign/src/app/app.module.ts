@@ -8,13 +8,15 @@ import {RouterModule,Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SignupComponent } from './signup/signup.component';
+import { ChangepassComponent } from './changepass/changepass.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'board',
+    redirectTo:'login',
     pathMatch:'full'
   },
   {
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path:'login',
     component:LoginComponent
+  },
+  {
+    path:'signup',
+    component:SignupComponent
+  },
+  {
+    path:'changepass',
+    component:ChangepassComponent
   }
 ];
 @NgModule({
@@ -32,7 +42,9 @@ const routes: Routes = [
     BoardComponent,
     LoginComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SignupComponent,
+    ChangepassComponent
   ],
   imports: [
     BrowserModule,
