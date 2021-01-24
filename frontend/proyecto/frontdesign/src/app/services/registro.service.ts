@@ -25,7 +25,7 @@ export class RegistroService {
       'Something bad happened; please try again later.');
   }
 
-  addNewUser(datos:UserI):Observable<any>{
-    return this.httpClient.post(`${this.backendHost}/signup`,datos,{headers:this.cuerpo})
+  addNewUser(datos:UserI):Observable<UserI>{
+    return this.httpClient.post<UserI>(`${this.backendHost}/signup`,datos,{headers:this.cuerpo})
     }
 }

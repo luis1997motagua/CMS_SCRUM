@@ -10,7 +10,8 @@ const app = express()
 createRoles();
 
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.get('/',(req,res)=>{
     res.json({author:'luis lagos',
