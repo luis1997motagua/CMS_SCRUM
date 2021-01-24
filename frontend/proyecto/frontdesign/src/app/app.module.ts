@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { ChangepassComponent } from './changepass/changepass.component';
+import {HttpClientModule} from '@angular/common/http'
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -49,6 +50,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FullCalendarModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
