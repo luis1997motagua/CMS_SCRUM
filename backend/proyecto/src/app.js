@@ -5,14 +5,13 @@ import {createRoles} from './libs/initialSetup'
 import authRoutes from './routes/auth.routes'
 import tasksRouter from './routes/tasks.routes'
 import usersRoutes from './routes/user.routes'
+import cors from 'cors'
 const app = express()
 createRoles();
 
 app.use(morgan('dev'));
-
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-
 app.get('/',(req,res)=>{
     res.json({author:'luis lagos',
     description:'proyecto graduacion',

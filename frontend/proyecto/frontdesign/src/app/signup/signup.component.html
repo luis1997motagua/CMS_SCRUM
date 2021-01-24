@@ -1,37 +1,39 @@
-<body>
+<body>   
 <app-navbar></app-navbar>
-<h2>Create your Account</h2>    
+<h2>Create your Account</h2>
 <div class="main-content">
-<b><label>Username: </label></b>
-<br/>
-<div class="ui left icon input">
-    <input type="text" placeholder="username" id="username" required>
-    <i class="users icon"></i>
+<form [formGroup]="loginForm" (ngSubmit)="RegisterUser(loginForm.value)">
+  <b><label>Username: </label></b>
+  <br/>
+  <div class="ui left icon input">
+      <input type="text" formControlName="username"  placeholder="username"  required>
+      <i class="users icon"></i>
+    </div>
+    <br/>
+    <br/>
+  <b><label>Email: </label></b>
+  <br/>
+    <div class="ui left icon input">
+      <input type="email" formControlName="email"  placeholder="email"  required>
+      <i class="envelope icon"></i>
   </div>
   <br/>
   <br/>
-<b><label>Email: </label></b>
-<br/>
+  <b><label>Password: </label></b>
+  <br/>
   <div class="ui left icon input">
-    <input type="password" placeholder="email" id="email" required>
-    <i class="envelope icon"></i>
-</div>
-<br/>
-<br/>
-<b><label>Password: </label></b>
-<br/>
-<div class="ui left icon input">
-    <input type="password" placeholder="password" id="password" required>
-    <i class="key icon"></i>
-</div>
-<br/>
-<br/>
-<button class="ui large purple button" style="margin-left: 30px;" id="submit">
-    Create Account
-</button>
-<br/>
-<br/>
-<a routerLink="/login">Do you have already an account?</a>
-</div>
+      <input type="password" formControlName="password"  placeholder="password"  required>
+      <i class="key icon"></i>
+  </div>
+  <br/>
+  <br/>
+  <button type="submit" class="ui large purple button" style="margin-left: 30px;">
+      Create Account
+  </button>
+</form>
+  <br/>
+  <br/>
+  <a routerLink="/login">Do you have already an account?</a>
+  </div>
 </body>
 <app-footer></app-footer>

@@ -11,6 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { ChangepassComponent } from './changepass/changepass.component';
 import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import {RegistroService} from './services/registro.service'
+import {ReactiveFormsModule} from '@angular/forms'
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -51,9 +54,11 @@ const routes: Routes = [
     BrowserModule,
     FullCalendarModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [RegistroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
