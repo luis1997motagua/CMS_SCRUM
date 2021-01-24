@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
   }
   RegisterUser(form:UserI):void{
     this.registroservice.addNewUser(form);
+    console.log(form)
   }
   
 }
