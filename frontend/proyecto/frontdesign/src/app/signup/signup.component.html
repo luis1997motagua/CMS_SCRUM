@@ -2,7 +2,7 @@
 <app-navbar></app-navbar>
 <h2>Create your Account</h2>
 <div class="main-content">
-<form [formGroup]="loginForm" (ngSubmit)="RegisterUser(loginForm.value)">
+<form [formGroup]="loginForm" (ngSubmit)="RegisterUser(loginForm.value)" novalidate>
   <b><label>Username: </label></b>
   <br/>
   <div class="ui left icon input">

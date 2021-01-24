@@ -11,7 +11,7 @@ import swal from 'sweetalert2';
 export class SignupComponent implements OnInit {
   loginForm = new FormGroup({
     username: new FormControl('',Validators.required),
-    email:new FormControl('',Validators.required),
+    email:new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('',Validators.required)
   })
  
@@ -20,7 +20,18 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   RegisterUser(form:UserI):void{
-    this.registroservice.addNewUser(form).subscribe(form=>{swal.fire('Nuevo Usuario','!Se registro en el sistema!','success')})
+    
+    if(this.loginForm.valid){
+      this.registroservice.addNewUser(form).subscribe(form=>{swal.fire('Nuevo Usuario','!Se registro en el sistema!','success')})
+      this.loginForm.reset('')
+    }
+    else{
+      swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'no puede dejar vacio los campos o el email no es valido'
+     }) 
+    }
   }
  
 }
