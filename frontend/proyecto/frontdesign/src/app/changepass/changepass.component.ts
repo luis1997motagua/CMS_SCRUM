@@ -13,8 +13,8 @@ export class ChangepassComponent implements OnInit {
 
 
   ChangePassForm = new FormGroup({
-    emailchange:new FormControl('',[Validators.required,Validators.email]),
-    passwordchange: new FormControl('',[Validators.required,Validators.minLength(8)])
+    email:new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('',[Validators.required,Validators.minLength(8)])
   })
 
   constructor(public registroservice:RegistroService) { }
@@ -24,7 +24,9 @@ export class ChangepassComponent implements OnInit {
   
   changePass(form):void{
      if(this.ChangePassForm.valid){
+        this.registroservice.changePassword(form).subscribe(form=>{swal.fire('Actualizado','!se cambio su contraseña!','success')})
        this.ChangePassForm.reset('');
+       console.log(form);
      }
   }
 

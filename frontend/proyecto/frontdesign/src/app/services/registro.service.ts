@@ -12,6 +12,7 @@ export class RegistroService {
 
   backendHost:string = 'http://localhost:4000/api/auth';
   cuerpo:any = new HttpHeaders().set('Content-Type','application/json');
+  
 
   constructor(private httpClient:HttpClient) { }
 
@@ -31,7 +32,7 @@ export class RegistroService {
     return this.httpClient.post<UserI>(`${this.backendHost}/signup`,datos,{headers:this.cuerpo})
     }
 
-  changePassword(){
-       
+  changePassword(datos):Observable<any>{
+       return this.httpClient.put<any>(`${this.backendHost}/change-password`,datos,{headers:this.cuerpo})
   }
 }
