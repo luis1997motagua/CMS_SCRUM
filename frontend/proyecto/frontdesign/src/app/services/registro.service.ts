@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {UserI} from '../models/user.interface';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import {HttpClient, HttpHeaders,HttpErrorResponse} from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,6 @@ export class RegistroService {
 
   backendHost:string = 'http://localhost:4000/api/auth';
   cuerpo:any = new HttpHeaders().set('Content-Type','application/json');
-  
 
   constructor(private httpClient:HttpClient) { }
 
@@ -30,9 +30,15 @@ export class RegistroService {
 
   addNewUser(datos:UserI):Observable<UserI>{
     return this.httpClient.post<UserI>(`${this.backendHost}/signup`,datos,{headers:this.cuerpo})
-    }
+  }
+
+  login(datos:UserI):Observable<UserI>{
+    return this.httpClient.post<UserI>(`${this.backendHost}/signin`,datos,{headers:this.cuerpo})
+
+  }
 
   changePassword(datos):Observable<any>{
+    console.log(datos)
        return this.httpClient.put<any>(`${this.backendHost}/change-password`,datos,{headers:this.cuerpo})
   }
 }
