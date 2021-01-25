@@ -9,8 +9,10 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RegistroService {
+
   backendHost:string = 'http://localhost:4000/api/auth';
-   cuerpo:any = new HttpHeaders().set('Content-Type','application/json');
+  cuerpo:any = new HttpHeaders().set('Content-Type','application/json');
+
   constructor(private httpClient:HttpClient) { }
 
   private handleError(error: HttpErrorResponse): any {
@@ -30,6 +32,6 @@ export class RegistroService {
     }
 
   changePassword(){
-    
+       
   }
 }

@@ -19,18 +19,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   RegisterUser(form:UserI):void{
-    
     if(this.loginForm.valid){
       this.registroservice.addNewUser(form).subscribe(form=>{swal.fire('Nuevo Usuario','!Se registro en el sistema!','success')})
       this.loginForm.reset('')
-    }
-    else{
-      swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: '!no puede dejar los campos vacios o el email no es valido, contraseña minimo de 8 caracteres!'
-     }) 
     }
   }
  

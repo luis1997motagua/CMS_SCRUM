@@ -1,27 +1,33 @@
 <body>
 <app-navbar></app-navbar>
 <div class="main-content">
+<form [formGroup]="ChangePassForm" (ngSubmit)=" changePass(ChangePassForm.value)" novalidate>
     <b><label>Email: </label></b>
 <br/>
   <div class="ui left icon input">
-    <input type="password" placeholder="email">
+    <input type="email" formControlName="emailchange" placeholder="email">
     <i class="envelope icon"></i>
+    <span *ngIf="this.ChangePassForm.get('emailchange').errors?.required">No puede quedar vacio</span>
+    <span *ngIf="this.ChangePassForm.get('emailchange').errors?.email">El correo no es valido</span>
 </div>
 <br/>
 <br/>
 <b><label>Password: </label></b>
 <br/>
 <div class="ui left icon input">
-    <input type="password" placeholder="password">
+    <input type="password"  formControlName="passwordchange" placeholder="password">
     <i class="key icon"></i>
+    <span *ngIf="this.ChangePassForm.get('passwordchange').errors?.required">No puede quedar vacio</span>
+    <span *ngIf="this.ChangePassForm.get('passwordchange').errors?.minlength">Debe tener como minimo 8 caracteres</span>
 </div>
 <br/>
 <br/>
-<button class="ui large orange button" style="margin-left: 20px;">
+<button type="submit" class="ui large orange button" style="margin-left: 20px;">
     Change Password
 </button>
 <br/>
 <br/>
+</form>
 <a routerLink="/login" style="margin-left: 60px;">Return to Login</a>
 </div>
 <app-footer></app-footer>
