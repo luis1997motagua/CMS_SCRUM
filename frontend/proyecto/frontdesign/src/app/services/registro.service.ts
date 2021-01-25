@@ -28,4 +28,8 @@ export class RegistroService {
   addNewUser(datos:UserI):Observable<UserI>{
     return this.httpClient.post<UserI>(`${this.backendHost}/signup`,datos,{headers:this.cuerpo})
     }
+
+  changePassword(){
+    
+  }
 }

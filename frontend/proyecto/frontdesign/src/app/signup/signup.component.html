@@ -8,6 +8,7 @@
   <div class="ui left icon input">
       <input type="text" formControlName="username"  placeholder="username"  required>
       <i class="users icon"></i>
+      <span *ngIf="this.loginForm.get('username').errors?.required">no puede quedar vacio</span>
     </div>
     <br/>
     <br/>
@@ -16,6 +17,8 @@
     <div class="ui left icon input">
       <input type="email" formControlName="email"  placeholder="email"  required>
       <i class="envelope icon"></i>
+      <span *ngIf="this.loginForm.get('email').errors?.required">no puede quedar vacio</span>
+      <span *ngIf="this.loginForm.get('email').errors?.email">el correo no es valido</span>
   </div>
   <br/>
   <br/>
@@ -24,6 +27,10 @@
   <div class="ui left icon input">
       <input type="password" formControlName="password"  placeholder="password"  required>
       <i class="key icon"></i>
+  <br/>
+  <br/>
+      <span *ngIf="this.loginForm.get('password').errors?.minlength">Debe tener como minimo 8 caracteres</span>
+      <span *ngIf="this.loginForm.get('password').errors?.required">No puede quedar vacio</span>
   </div>
   <br/>
   <br/>

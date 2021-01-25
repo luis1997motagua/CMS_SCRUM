@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
   loginForm = new FormGroup({
     username: new FormControl('',Validators.required),
     email:new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',Validators.required)
+    password: new FormControl('',[Validators.required,Validators.minLength(8)])
   })
  
   constructor(public registroservice:RegistroService){}
@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
       swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'no puede dejar vacio los campos o el email no es valido'
+        text: '!no puede dejar los campos vacios o el email no es valido, contraseña minimo de 8 caracteres!'
      }) 
     }
   }
