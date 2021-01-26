@@ -16,6 +16,8 @@ import {RegistroService} from './services/registro.service'
 import {ReactiveFormsModule} from '@angular/forms'
 import {AuthGuard} from './auth.guard';
 import {TokenInterceptorService} from './services/token-interceptor.service';
+import { MenuComponent } from './components/menu/menu.component';
+import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
@@ -42,6 +44,10 @@ const routes: Routes = [
   {
     path:'changepass',
     component:ChangepassComponent
+  },
+  {
+    path:'mantenimiento',
+    component:MantenimientoComponent 
   }
 ];
 @NgModule({
@@ -52,7 +58,9 @@ const routes: Routes = [
     NavbarComponent,
     FooterComponent,
     SignupComponent,
-    ChangepassComponent
+    ChangepassComponent,
+    MenuComponent,
+    MantenimientoComponent
   ],
   imports: [
     BrowserModule,

@@ -50,7 +50,7 @@ export class RegistroService {
 
     login(username:string,password:string){
       return this.httpClient.post(`${this.backendHost}/signin`,{"username":username,"password":password},{headers:this.cuerpo}) .subscribe((resp: any) => {
-        this.router.navigateByUrl('board');
+        this.router.navigateByUrl('mantenimiento');
         localStorage.setItem('auth_token', resp.token);
         localStorage.setItem('_id',resp.signed_user);
         },
