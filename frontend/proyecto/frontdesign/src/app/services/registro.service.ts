@@ -45,15 +45,29 @@ export class RegistroService {
       .subscribe();
  }
 
+
+    login(username:string,password:string){
+      return this.httpClient.post(`${this.backendHost}/signin`,{username:username,password:username},{headers:this.cuerpo})
+      .subscribe((resp: any) => {
+        localStorage.setItem('auth_token', resp.token);
+        localStorage.setItem('_id',resp.signed_user);
+       // this.router.navigate(['/board']);
+        })
+    }
+
+    loggedIn(){
+      return !!localStorage.getItem('auth_token');
+    }
    
 
     logout() {
       this.token = '';
       localStorage.removeItem('auth_token');
       localStorage.removeItem('_id');
+      this.router.navigate(['/login']);
     }
 
-   getoken():string{
+   getoken(){
         if(!this.token){
           this.token = localStorage.getItem('auth_token');
         }

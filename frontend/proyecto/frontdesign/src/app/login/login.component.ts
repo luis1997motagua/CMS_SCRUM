@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   userlog='';
   passlog='';
 
+
   constructor(public registro:RegistroService,public router:Router) { }
 
   ngOnInit(): void {
@@ -29,7 +30,9 @@ export class LoginComponent implements OnInit {
         text: '!No puede dejar vacios los campos!'
       });
     }else{
-      
+      this.registro.login(this.userlog,this.passlog);
+      this.userlog='';
+      this.passlog='';
     }
     /*this.registro.login(form).subscribe(res=>{
       this.router.navigateByUrl('/board');

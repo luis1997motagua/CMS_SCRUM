@@ -86,5 +86,10 @@ export const signIn = async(req,res)=>{
     const token = jwt.sign({id:userFound._id},config.SECRET,{
         expiresIn:86400
     })
-    return res.status(200).json({token});
+    res.status(200).send({
+        signed_user:userFound._id,
+        token:token        
+     });
+     next();
+     //res.status(200).json({message:"Bienvenido"});
 }

@@ -10,10 +10,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { ChangepassComponent } from './changepass/changepass.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import {RegistroService} from './services/registro.service'
 import {ReactiveFormsModule} from '@angular/forms'
+import {AuthGuard} from './auth.guard';
+import {TokenInterceptorService} from './services/token-interceptor.service';
+
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -24,16 +27,17 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path:'board',
-    component:BoardComponent
-  },
-  {
     path:'login',
     component:LoginComponent
   },
   {
     path:'signup',
     component:SignupComponent
+  },
+  {
+    path:'board',
+    component:BoardComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'changepass',
@@ -58,7 +62,14 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [RegistroService],
+  providers: [
+    RegistroService,
+    AuthGuard,{
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
