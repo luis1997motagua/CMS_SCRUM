@@ -22,12 +22,12 @@ export class ChangepassComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  changePass(form):void{
+  /*changePass(form):void{
      if(this.ChangePassForm.valid){
         this.registroservice.changePassword(form).subscribe(form=>{swal.fire('Actualizado','!se cambio su contraseña!','success')})
        this.ChangePassForm.reset('');
        console.log(form);
      }
-  }
+  }*/
 
 }

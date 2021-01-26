@@ -2,42 +2,38 @@
 <app-navbar></app-navbar>
 <h2>Create your Account</h2>
 <div class="main-content">
-<form [formGroup]="loginForm" (ngSubmit)="RegisterUser(loginForm.value)" novalidate>
-  <b><label>Username: </label></b>
-  <br/>
-  <div class="ui left icon input">
-      <input type="text" formControlName="username"  placeholder="username"  required>
-      <i class="users icon"></i>
-      <span *ngIf="this.loginForm.get('username').errors?.required">No puede quedar vacio</span>
+  
+    <b><label>Username: </label></b>
+    <br/>
+    <div class="ui left icon input">
+        <input type="text"   placeholder="username" [(ngModel)]="username" required>
+        <i class="users icon"></i>
+      </div>
+      <br/>
+      <br/>
+    <b><label>Email: </label></b>
+    <br/>
+      <div class="ui left icon input">
+        <input type="email"   placeholder="email" [(ngModel)]="email" required>
+        <i class="envelope icon"></i>
     </div>
     <br/>
     <br/>
-  <b><label>Email: </label></b>
-  <br/>
+    <b><label>Password: </label></b>
+    <br/>
     <div class="ui left icon input">
-      <input type="email" formControlName="email"  placeholder="email"  required>
-      <i class="envelope icon"></i>
-      <span *ngIf="this.loginForm.get('email').errors?.required">No puede quedar vacio</span>
-      <span *ngIf="this.loginForm.get('email').errors?.email">El correo no es valido</span>
-  </div>
-  <br/>
-  <br/>
-  <b><label>Password: </label></b>
-  <br/>
-  <div class="ui left icon input">
-      <input type="password" formControlName="password"  placeholder="password"  required>
-      <i class="key icon"></i>
-  <br/>
-  <br/>
-      <span *ngIf="this.loginForm.get('password').errors?.minlength">Debe tener como minimo 8 caracteres</span>
-      <span *ngIf="this.loginForm.get('password').errors?.required">No puede quedar vacio</span>
-  </div>
-  <br/>
-  <br/>
-  <button type="submit" class="ui large purple button" style="margin-left: 30px;">
-      Create Account
-  </button>
-</form>
+        <input type="password" placeholder="password" [(ngModel)]="password" required>
+        <i class="key icon"></i>
+    <br/>
+    <br/>
+  
+    </div>
+    <br/>
+    <br/>
+    <button type="submit" (click)="RegistroUsuario()" class="ui large purple button" style="margin-left: 30px;">
+        Create Account
+    </button>
+ 
   <br/>
   <br/>
   <a routerLink="/login">Do you have already an account?</a>
