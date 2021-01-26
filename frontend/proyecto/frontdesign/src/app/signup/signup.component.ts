@@ -32,12 +32,21 @@ export class SignupComponent implements OnInit {
     }
   }*/
   RegistroUsuario():void {
-  
-    this.registroservice.adduser(this.username,this.email, this.password);
-    swal.fire('Nuevo Usuario','!Se registro en el sistema!','success');
-    this.username = '';
-    this.password = '';
-    this.email = '';
-    }
+    
+   if(this.username == '' && this.password == '' && this.email == ''){
+        swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: '!No puede dejar vacios los campos!'
+        });
+   }else{
+        this.registroservice.adduser(this.username,this.email, this.password);
+        swal.fire('Nuevo Usuario','!Se registro en el sistema!','success');
+        this.username = '';
+        this.password = '';
+        this.email = '';
+   }  
+
+  }
  
 }

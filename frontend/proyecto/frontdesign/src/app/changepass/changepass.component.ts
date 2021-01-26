@@ -12,6 +12,9 @@ import { ThrowStmt } from '@angular/compiler';
 export class ChangepassComponent implements OnInit {
 
 
+  emailchange = '';
+  passwordchange = '';
+
   ChangePassForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('',[Validators.required,Validators.minLength(8)])
@@ -22,12 +25,20 @@ export class ChangepassComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  /*changePass(form):void{
-     if(this.ChangePassForm.valid){
-        this.registroservice.changePassword(form).subscribe(form=>{swal.fire('Actualizado','!se cambio su contraseña!','success')})
-       this.ChangePassForm.reset('');
-       console.log(form);
-     }
-  }*/
+  changePass():void{
+    if(this.emailchange == '' && this.passwordchange == ''){
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '!No puede dejar vacios los campos!'
+      });
+    }else{
+      this.registroservice.changePassword(this.emailchange,this.passwordchange); 
+      swal.fire('Cambio Contraseña','!su contraseña ha sido actualizada!','success');
+      this.emailchange = '';
+      this.passwordchange = '';
+    }
+        
+  }
 
 }

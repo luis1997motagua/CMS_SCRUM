@@ -29,9 +29,6 @@ export class RegistroService {
       'Something bad happened; please try again later.');
   }
 
-  /*addNewUser(datos:UserI):Observable<UserI>{
-    return this.httpClient.post<UserI>(`${this.backendHost}/signup`,datos,{headers:this.cuerpo})
-  }*/
 
   adduser(username:string,email: string, password: string) {
     this.httpClient.post(`${this.backendHost}/signup`, {username:username,email:email,password: password},{headers:this.cuerpo})
@@ -43,13 +40,20 @@ export class RegistroService {
       })
     }
 
- /* login(datos:UserI):Observable<UserI>{
-    return this.httpClient.post<UserI>(`${this.backendHost}/signin`,datos,{headers:this.cuerpo})
+    changePassword(email: string, password: string){
+      return this.httpClient.put<any>(`${this.backendHost}/change-password`,{email:email,password: password},{headers:this.cuerpo})
+      .subscribe();
+ }
 
-  }*/
+    logout() {
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('_id');
+    }
 
-  /*changePassword(datos):Observable<any>{
-    console.log(datos)
-       return this.httpClient.put<any>(`${this.backendHost}/change-password`,datos,{headers:this.cuerpo})
-  }*/
+    public get logIn(): boolean {
+      return (localStorage.getItem('auth_token') !== null);
+    }
+ 
+
+  
 }
