@@ -45,13 +45,19 @@ export class RegistroService {
       .subscribe();
  }
 
+   
+
     logout() {
+      this.token = '';
       localStorage.removeItem('auth_token');
       localStorage.removeItem('_id');
     }
 
-    public get logIn(): boolean {
-      return (localStorage.getItem('auth_token') !== null);
+   getoken():string{
+        if(!this.token){
+          this.token = localStorage.getItem('auth_token');
+        }
+        return this.token;
     }
  
 

@@ -10,11 +10,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  loginForm = new FormGroup({
-    username: new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8)])
-  })
+  
  
   username='';
   email = '';

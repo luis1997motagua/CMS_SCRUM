@@ -11,17 +11,26 @@ import {Router} from '@angular/router'
 })
 export class LoginComponent implements OnInit {
 
-  signinForm = new FormGroup({
-    username: new FormControl('',Validators.required),
-    password: new FormControl('',Validators.required)
-  })
+ 
+
+  userlog='';
+  passlog='';
 
   constructor(public registro:RegistroService,public router:Router) { }
 
   ngOnInit(): void {
   }
   
-  Entrar(form:UserI):void{
+  Entrar():void{
+    if(this.userlog == '' && this.passlog == ''){
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '!No puede dejar vacios los campos!'
+      });
+    }else{
+      
+    }
     /*this.registro.login(form).subscribe(res=>{
       this.router.navigateByUrl('/board');
     })*/
