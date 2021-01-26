@@ -7,6 +7,8 @@ import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { tap } from 'rxjs/operators';
 import {Router} from '@angular/router';
+import { error } from '@angular/compiler/src/util';
+import swat from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,8 +37,8 @@ export class RegistroService {
     .subscribe((resp: any) => {
     
       //this.router.navigate(['profile']);
-      localStorage.setItem('auth_token', resp.token);
-      localStorage.setItem('_id',resp.signed_user);
+      //localStorage.setItem('auth_token', resp.token);
+      //localStorage.setItem('_id',resp.signed_user);
       })
     }
 
@@ -47,13 +49,26 @@ export class RegistroService {
 
 
     login(username:string,password:string){
-      return this.httpClient.post(`${this.backendHost}/signin`,{username:username,password:username},{headers:this.cuerpo})
-      .subscribe((resp: any) => {
+      return this.httpClient.post(`${this.backendHost}/signin`,{"username":username,"password":password},{headers:this.cuerpo}) .subscribe((resp: any) => {
+        this.router.navigateByUrl('board');
         localStorage.setItem('auth_token', resp.token);
         localStorage.setItem('_id',resp.signed_user);
-       // this.router.navigate(['/board']);
+        },
+        error=>{
+          swat.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '!Credenciales Incorrectas!'
+          });
         })
+   
     }
+
+    /*subscribe((resp: any) => {
+      localStorage.setItem('auth_token', resp.token);
+      localStorage.setItem('_id',resp.signed_user);
+      this.router.navigate(['/board']);
+      })*/
 
     loggedIn(){
       return !!localStorage.getItem('auth_token');
@@ -61,7 +76,7 @@ export class RegistroService {
    
 
     logout() {
-      this.token = '';
+      //this.token = '';
       localStorage.removeItem('auth_token');
       localStorage.removeItem('_id');
       this.router.navigate(['/login']);

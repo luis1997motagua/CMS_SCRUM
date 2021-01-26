@@ -37,7 +37,7 @@ const routes: Routes = [
   {
     path:'board',
     component:BoardComponent,
-    canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path:'changepass',
@@ -64,11 +64,11 @@ const routes: Routes = [
   ],
   providers: [
     RegistroService,
-    AuthGuard,{
+    /*AuthGuard,{
       provide:HTTP_INTERCEPTORS,
       useClass:TokenInterceptorService,
       multi:true
-    }
+    }*/
 ],
   bootstrap: [AppComponent]
 })
