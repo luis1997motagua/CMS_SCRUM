@@ -95,7 +95,26 @@ export const signUp = async(req,res)=>{
  
 }
 
-
+export const signUpSuperAdmin = async(req,res)=>{
+    const {username, email, password, roles} = req.body;
+    const newUser = new User({
+        username,
+        email,
+        password: await User.encryptPassword(password),
+        roles
+    });   
+    if(roles){
+        const foundRoles = await Role.find({name:{$in:roles}})
+        newUser.roles = foundRoles.map(role=>role._id)
+    }
+    const saveUser = await newUser.save();
+    if(saveUser){
+        return res.status(200).json({message:"Usuario creado con exito"});
+    }
+    else{
+        return res.status(400).json({message:"Something occured"});
+    }
+}
 
 export const signIn = async(req,res)=>{
    /* const userData = {
