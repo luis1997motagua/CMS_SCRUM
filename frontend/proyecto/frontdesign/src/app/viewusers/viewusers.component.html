@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<body>
+    <div class="main-container">
+        <h2>Lista de Usuarios Registrados</h2>
+        <br/>
+        <br/>
+        <b><label style="margin-left: 560px;">Email: </label></b>
+        <br/>
+        <div class="ui left icon input" style="margin-left: 560px;">
+          <input type="email" placeholder="escriba correo a buscar" [(ngModel)]="emailsearch" required>
+          <i class="search icon"></i>
+        </div>
+        <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of data;">
+                <td>{{d._id}}</td>
+                <td>{{d.username}}</td>
+                <td>{{d.email}}</td>
+              </tr>
+            </tbody>
+          </table> 
+          <button type="submit" (click)="searchUserByEmail()" class="ui large green button" style="margin-left: 30px;">
+          Search
+        </button>
+        <button type="submit" class="ui large red button" style="margin-left: 30px;">
+          Delete
+      </button>
+    </div>
+</body>

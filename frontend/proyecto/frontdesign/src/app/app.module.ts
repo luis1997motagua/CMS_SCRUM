@@ -18,6 +18,7 @@ import {AuthGuard} from './auth.guard';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
+import { ViewusersComponent } from './viewusers/viewusers.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path:'mantenimiento',
     component:MantenimientoComponent 
+  },
+  {
+    path:'viewusers',
+    component:ViewusersComponent
   }
 ];
 @NgModule({
@@ -60,7 +65,8 @@ const routes: Routes = [
     SignupComponent,
     ChangepassComponent,
     MenuComponent,
-    MantenimientoComponent
+    MantenimientoComponent,
+    ViewusersComponent
   ],
   imports: [
     BrowserModule,

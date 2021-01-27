@@ -5,6 +5,7 @@ import {verifySignup,authJwt} from '../middlewares'
 router.post('/signin',authCtrl.signIn)
 router.post('/signup',authCtrl.signUp)
 router.post('/signup-superadmin',authCtrl.signUpSuperAdmin)
+router.get('/get-one-user/:email',authCtrl.getOneUser);
 router.delete('/remove-user/:idusuario',[authJwt.verifyToken,authJwt.isSuperAdmin],authCtrl.deleteUserfromSuperAdmin);
 router.put('/change-password',authCtrl.changePassword)
 router.delete('/remove-user-from-admin/:idusuario',[authJwt.verifyToken,authJwt.isAdmin],authCtrl.deleteUserfromAdmin)
