@@ -1,1 +1,47 @@
 <app-menu></app-menu>
+<body>
+    <h2>Creación de Usuarios</h2>
+    <div class="main-container">
+        <b><label>Username: </label></b>
+        <br/>
+        <div class="ui left icon input">
+            <input type="text"   placeholder="username" [(ngModel)]="username" required>
+            <i class="users icon"></i>
+          </div>
+          <br/>
+          <br/>
+        <b><label>Email: </label></b>
+        <br/>
+          <div class="ui left icon input">
+            <input type="email"   placeholder="email" [(ngModel)]="email" required>
+            <i class="envelope icon"></i>
+        </div>
+        <br/>
+        <br/>
+        <b><label>Password: </label></b>
+        <br/>
+        <div class="ui left icon input">
+            <input type="password" placeholder="password" [(ngModel)]="password" required>
+            <i class="key icon"></i>
+        </div>
+        <br/>
+        <br/>
+       <b><label>Roles: </label></b>
+            <div class="field">
+              <select class="ui tiny dropdown" [(ngModel)]="rol">
+                <option value="">Seleccione una opción</option>
+                <option value="admin">admin</option>
+                <option value="user">user</option>
+                <option value="superadmin">superadmin</option>
+              </select>
+            </div>
+        <br/>
+        <br/>
+        <button type="submit"class="ui small green button" style="margin-left: 10px;">
+            Create User
+        </button>
+        <button type="submit"class="ui yellow green button" style="margin-left: 10px;">
+            View Users
+        </button>
+</div>
+</body>

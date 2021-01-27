@@ -47,6 +47,26 @@ export const changePassword = async(req,res)=>{
 
 }
 
+
+/*db.users.aggregate(
+    [
+        {
+            $match:{
+                _id:ObjectId("60091fbf93768e135889ca9f")
+            }
+        },
+        {
+            $lookup:{
+                from:'users',
+                localField:'_id',
+                foreignField:'name',
+                as:'col'
+            }
+        }
+    ]
+).pretty()*/
+
+
 export const signUp = async(req,res)=>{
    
     const {username, email, password, roles} = req.body;
@@ -74,6 +94,7 @@ export const signUp = async(req,res)=>{
   /// res.status(200).json({token})
  
 }
+
 
 
 export const signIn = async(req,res)=>{
