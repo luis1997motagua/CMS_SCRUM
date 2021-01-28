@@ -1,19 +1,23 @@
 import {Schema,model} from 'mongoose'
 const userSchema = new Schema({
-    fechainicial:{
-        type:Date,
+    username:{
+      type:String,
+      required:true
+    },
+    actividades:{
+        type:[String],
+        required:true
+    },
+    fechainicio:{
+        type:String,
         required:true
     },
     fechafinalizacion:{
-        type:Date,
+        type:String,
         required:true
     },
     tipoactividad:{
         type:String,
-        required:true
-    },
-    actividades:{
-        type:[String],
         required:true
     },
     coloractividad:{
@@ -21,15 +25,8 @@ const userSchema = new Schema({
         required:true
     },
     fechacumplimiento:{
-        type:Date
-    },
-    enlacearchivo:{
         type:String
-    },
-    comentario:{
-        type:String
-    },
-    user : [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    }
  },
  {
      timestamps:true,

@@ -47,26 +47,28 @@ export const changePassword = async(req,res)=>{
 
 }
 
+
+
+/*db.tasks.update({
+    _id: ObjectId("6012787c047b083394e4d411")
+},
+{
+    $set: {
+        "fechacumplimiento" : "dd",
+        "enlacearchivo" : "dd",
+        "comentario" : "dd",
+        "fechahoracomentario" : "dd"
+    }
+})
+*/
+
 export const getOneUser = async(req,res)=>{
     const email = req.params.email;
     let filter = {"email":email};
     const result = await User.findOne(filter);
      res.json(result);
 }
-/*db.users.aggregate([ 
-    { 
-        {
-            $match:id_:ObjectId("")
-        },
-     "$lookup": { 
-      "from": "roles", 
-      "localField": "_id", 
-      "foreignField": "name", 
-      "as": "user_docs" 
-     } 
-    } 
-]).pretty(); 
-*/
+
 
 export const signUp = async(req,res)=>{
    

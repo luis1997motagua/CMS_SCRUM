@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
 import { CalendarView} from 'angular-calendar';
 import {CalendarEvent} from 'angular-calendar';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { startOfDay } from 'date-fns';
+import { isSameDay, isSameMonth } from 'date-fns';
+
 //import { CalendarOptions } from '@fullcalendar/angular';
 @Component({
   selector: 'app-board',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
@@ -16,6 +19,8 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
@@ -26,15 +31,15 @@ export class BoardComponent implements OnInit {
   events: CalendarEvent[] = [
     {
       start: startOfDay(new Date()),
-      title: 'First event',
+      title: 'all'
     },
     {
       start: startOfDay(new Date()),
-      title: 'Second event',
+      title: 'all',
     }
   ]
 
- /* let data=fromdb();
+ /*let data=fromdb();
   for(let x of data)
   {
   this.events = [
@@ -48,8 +53,7 @@ export class BoardComponent implements OnInit {
 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    console.log(date);
-    //this.openAppointmentList(date)
+    
   }
 
 }
