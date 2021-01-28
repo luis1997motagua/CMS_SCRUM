@@ -51,7 +51,7 @@ export const getOneUser = async(req,res)=>{
     const email = req.params.email;
     let filter = {"email":email};
     const result = await User.findOne(filter);
-    return res.status(200).json(result);
+     res.json(result);
 }
 /*db.users.aggregate([ 
     { 

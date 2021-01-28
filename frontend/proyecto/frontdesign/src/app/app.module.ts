@@ -19,7 +19,8 @@ import {TokenInterceptorService} from './services/token-interceptor.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 import { ViewusersComponent } from './viewusers/viewusers.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -74,7 +75,11 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
   ],
   providers: [
     RegistroService,

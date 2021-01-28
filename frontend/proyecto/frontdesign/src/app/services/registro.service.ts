@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {UserI} from '../models/user.interface';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import {HttpClient, HttpHeaders,HttpErrorResponse} from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';

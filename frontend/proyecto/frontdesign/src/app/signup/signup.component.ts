@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {RegistroService} from '../services/registro.service';
 import {FormGroup,FormControl,Validators} from '@angular/forms'
-import {UserI} from '../models/user.interface';
 import {NgForm} from '@angular/forms';
 import swal from 'sweetalert2';
 @Component({
