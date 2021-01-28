@@ -3,7 +3,6 @@ import {MantenimientoService} from '../services/mantenimiento.service';
 import swat from 'sweetalert2';
 import { ThisReceiver, ThrowStmt } from '@angular/compiler';
 import { ActivatedRoute, Params } from '@angular/router';//directivas para extraer valores de la URI
-import {HttpClient,HttpHeaders} from '@angular/common/http';
 @Component({
   selector: 'app-viewusers',
   templateUrl: './viewusers.component.html',
@@ -12,13 +11,12 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 })
 export class ViewusersComponent implements OnInit {
 
-  constructor(public mantservice:MantenimientoService, private route: ActivatedRoute,
-    public httpclient:HttpClient) { }
+  constructor(public mantservice:MantenimientoService, private route: ActivatedRoute) { }
 
   emailsearch="";
-  users:any = [];
+  users=null;
   
-  private urlApi:string = 'http://localhost:4000/api/auth';
+  
 
   ngOnInit(): void {
   
@@ -34,11 +32,18 @@ export class ViewusersComponent implements OnInit {
       });
     }
     else{
-        return this.httpclient.get(`${this.urlApi}/get-one-user/:${this.emailsearch}`)
-        .subscribe(res=>{
-          this.users = res;
-          console.log(this.users);
-        })
+           this.mantservice.getOneUser(this.emailsearch).subscribe(
+             data => {
+               this.users = Array.of(data);
+               console.log(data);
+             },
+             error=>{
+              swat.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '!No existe ese usuario!'
+              });
+             });
       }
   }
   /* Obtener valores de la URL para el req.params

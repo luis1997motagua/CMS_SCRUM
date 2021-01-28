@@ -66,7 +66,7 @@ export const getOneUser = async(req,res)=>{
     const email = req.params.email;
     let filter = {"email":email};
     const result = await User.findOne(filter);
-     res.json(result);
+    res.send(result);
 }
 
 

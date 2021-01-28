@@ -17,6 +17,8 @@ export class MantenimientoService {
     return this.httpclient.post(`${this.urlApi}/signup-superadmin`,{"username":username,"email":email,"password":password,"roles":rol},{headers:this.cuerpo}).subscribe();
   }
 
-
+ public getOneUser(email):Observable<any>{
+    return this.httpclient.get(`${this.urlApi}/get-one-user/${email}`);
+ }
 
 }

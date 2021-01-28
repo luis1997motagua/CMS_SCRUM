@@ -12,11 +12,14 @@ export class MantenimientoComponent implements OnInit {
   email="";
   password="";
   rol="";
+  mensaje:string;
   constructor(public mantservice:MantenimientoService) { }
 
   ngOnInit(): void {
+     
   }
 
+ 
   registarUser():void{
      if(this.username == '' && this.email == '' && this.password == ''){
       swal.fire({

@@ -21,6 +21,7 @@ import { MantenimientoComponent } from './mantenimiento/mantenimiento.component'
 import { ViewusersComponent } from './viewusers/viewusers.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ChatComponent } from './chat/chat.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
@@ -55,6 +56,10 @@ const routes: Routes = [
   {
     path:'viewusers',
     component:ViewusersComponent
+  },
+  {
+    path:'chat',
+    component:ChatComponent
   }
 ];
 @NgModule({
@@ -68,7 +73,8 @@ const routes: Routes = [
     ChangepassComponent,
     MenuComponent,
     MantenimientoComponent,
-    ViewusersComponent
+    ViewusersComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

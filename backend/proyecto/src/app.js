@@ -6,6 +6,7 @@ import authRoutes from './routes/auth.routes'
 import tasksRouter from './routes/tasks.routes'
 import usersRoutes from './routes/user.routes'
 import cors from 'cors'
+
 const app = express()
 createRoles();
 
