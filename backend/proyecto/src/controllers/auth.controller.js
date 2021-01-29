@@ -22,16 +22,10 @@ export const deleteUserfromAdmin = async(req,res)=>{
 }
 
 export const deleteUserfromSuperAdmin = async(req,res)=>{
-    var {idusuario} = req.params
-     let filter = {"_id":mongoose.Types.ObjectId(idusuario)}
-     let user = await User.findOne(filter)
-     if(user!=null){
-        const deleteUser = await User.deleteOne(user)
-        return res.status(200).json({message:"Usuario deleted"})
-     }
-     else{
-        return res.status(400).json({message:"User doesn't exist"})
-     }
+     var id = req.params._id;
+     let filter = {"_id":mongoose.Types.ObjectId(id)}
+     const deleteUser = await User.deleteOne(filter)
+     return res.status(200).json({message:"Usuario deleted"})
 }
 
 export const changePassword = async(req,res)=>{

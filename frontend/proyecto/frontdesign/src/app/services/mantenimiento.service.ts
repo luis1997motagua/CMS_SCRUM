@@ -21,4 +21,8 @@ export class MantenimientoService {
     return this.httpclient.get(`${this.urlApi}/get-one-user/${email}`);
  }
 
+ public deleteUser(id):Observable<any>{
+   return this.httpclient.delete(`${this.urlApi}/remove-user/${id}`);
+ }
+
 }

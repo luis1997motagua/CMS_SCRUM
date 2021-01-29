@@ -14,16 +14,40 @@ export class ViewusersComponent implements OnInit {
   constructor(public mantservice:MantenimientoService, private route: ActivatedRoute) { }
 
   emailsearch="";
-  users=null;
-  
+  users;
+  currentUser=null
+
   
 
   ngOnInit(): void {
   
 
   }
+
+  RemoveUserfromSystem(id):void{
+    swat.fire({
+        title: 'Eliminar usuario',
+        text: "¿Desea eliminar este usuario del sistema?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.mantservice.deleteUser(id).subscribe();
+          this.users = null;
+          this.emailsearch = '';
+          swat.fire(
+            '!Eliminado!',
+            'Usuario eliminado del sistema',
+            'success'
+          )
+        }
+      })
+  }
   
-  searchUserByEmail(){
+  searchUserByEmail():void{
     if(this.emailsearch==''){
       swat.fire({
         icon: 'error',
