@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {DataService} from '../services/data.service';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  allComments;
+  constructor(public dataservice:DataService) { }
 
   ngOnInit(): void {
+    this.allComments =  this.dataservice.getAllComments();
   }
 
 }

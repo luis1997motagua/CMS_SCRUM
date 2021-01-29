@@ -1,0 +1,13 @@
+.viewport{
+    height: 300px;
+    width: 800px;
+    border: 1px dotted black;
+    text-align: center;
+}
+.commentarios{
+    height: 50px;
+    width: 100px;
+}
+body{
+    align-content: center;
+}

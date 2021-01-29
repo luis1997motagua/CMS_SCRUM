@@ -1,6 +1,8 @@
 <app-menu></app-menu>
+<br/>
+<body>
 
-<div class="ui comments">
+  <div class="ui comments">
     <h3 class="ui dividing header">Comentarios</h3>
     <div class="comment">
      
@@ -9,23 +11,32 @@
       </div>
       <div class="comments">
         <div class="comment">
-          
+          <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+             <p *cdkVirtualFor="let comment of allComments | async">
+              <b><label>Fecha: {{comment.fechahora}}</label></b>
+            <br/>
+              <b><label>Usuario: {{comment.username}}</label></b>
+              <br/>
+              <b><label>Comentario:</label></b>
+          <br/>
+              {{comment.comentario}}
+            <br/>
+            </p>
+          </cdk-virtual-scroll-viewport>
         </div>
       </div>
     </div>
-    <div class="comment">
-      
-    </div>
-    <form class="ui reply form">
+    <form class="ui reply form" style="margin-left: 100px;">
       <div class="field">
         <textarea></textarea>
       </div>
-      <button type="submit"  class="ui blue labeled submit icon button">
+      <button type="submit"  class="ui blue labeled submit icon button" style="margin-left: 100px;">
         <i class="icon edit"></i> Comentar
       </button>
-      <button type="submit"  class="ui green labeled submit icon button">
-        <i class="eye icon"></i> Ver Mensajes
+      <button type="submit"  class="ui green labeled submit icon button" style="margin-left: 100px;">
+        <i class="upload icon"></i>Subir
       </button>
     </form>
   </div>
-  <app-footer></app-footer>
+
+</body>

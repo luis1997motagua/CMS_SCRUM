@@ -13,3 +13,8 @@ export const addComment = async(req,res) =>{
     const saveComment = await newComment.save();
     res.status(200).json({message:"comentario ingresado con exito"});
 }
+
+export const GetComments = async(req,res)=>{
+    const getAll = await Chat.find();
+    res.send(getAll);
+}

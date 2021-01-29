@@ -3,19 +3,16 @@ import {Schema,model} from 'mongoose';
 
 const chatSchema = new Schema({
     username:{
-        type:String,
-        unique:true
+        type:String
     },
     comentario:{
         type:String,
-        unique:true
     },
     archivo:{
         type:String
     },
     fechahora:{
         type:String,
-        unique:true
     }
  },
  {

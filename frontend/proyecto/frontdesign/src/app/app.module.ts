@@ -22,7 +22,7 @@ import { ViewusersComponent } from './viewusers/viewusers.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ChatComponent } from './chat/chat.component';
-
+import {ScrollingModule} from '@angular/cdk/scrolling';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -82,6 +82,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    ScrollingModule,
     RouterModule.forRoot(routes),
     CalendarModule.forRoot({
       provide: DateAdapter,
