@@ -44,6 +44,10 @@ export class ViewusersComponent implements OnInit {
             'success'
           )
         }
+        else{
+          this.users = null;
+          this.emailsearch = '';
+        }
       })
   }
   

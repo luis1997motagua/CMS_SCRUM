@@ -13,10 +13,11 @@ export class MantenimientoComponent implements OnInit {
   password="";
   rol="";
   mensaje:string;
+  usuario:string;
   constructor(public mantservice:MantenimientoService) { }
 
   ngOnInit(): void {
-     
+     this.usuario = localStorage.getItem('username');
   }
 
  

@@ -7,9 +7,11 @@ import {Router} from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  usuario:string;
   constructor(public route:Router) { }
-
+  
   ngOnInit(): void {
+    this.usuario = localStorage.getItem('username');
   }
   logout() {
     localStorage.removeItem('auth_token');

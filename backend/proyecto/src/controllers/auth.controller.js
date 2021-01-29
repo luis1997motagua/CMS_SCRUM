@@ -155,6 +155,7 @@ export const signIn = async(req,res)=>{
         expiresIn:86400
     })
     res.status(200).send({
+        user:username,
         signed_user:userFound._id,
         token:token        
      });
