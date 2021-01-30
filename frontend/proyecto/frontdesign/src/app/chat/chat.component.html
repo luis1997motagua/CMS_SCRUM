@@ -2,16 +2,10 @@
 <br/>
 <body>
 
-  <div class="ui comments">
-    <h3 class="ui dividing header">Comentarios</h3>
-    <div class="comment">
-     
-      <div class="content">
-        
-      </div>
-      <div class="comments">
-        <div class="comment">
-          <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+ 
+<br/>
+<br/>
+             <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
              <p *cdkVirtualFor="let comment of allComments | async">
               <b><label>Fecha: {{comment.fechahora}}</label></b>
             <br/>
@@ -23,20 +17,16 @@
             <br/>
             </p>
           </cdk-virtual-scroll-viewport>
-        </div>
-      </div>
-    </div>
-    <form class="ui reply form" style="margin-left: 100px;">
-      <div class="field">
-        <textarea></textarea>
-      </div>
-      <button type="submit"  class="ui blue labeled submit icon button" style="margin-left: 100px;">
+   <br/>
+   <br/>      
+      <textarea [(ngModel)]="comentario" rows="5" cols="70" style="margin-left: 450px;"></textarea>
+      <br/>
+      <br/>
+      <button type="submit" (click)="addComment()" class="ui blue labeled submit icon button" style="margin-left: 500px;">
         <i class="icon edit"></i> Comentar
       </button>
-      <button type="submit"  class="ui green labeled submit icon button" style="margin-left: 100px;">
+      <button type="submit"   class="ui green labeled submit icon button" style="margin-left: 100px;">
         <i class="upload icon"></i>Subir
       </button>
-    </form>
-  </div>
 
 </body>

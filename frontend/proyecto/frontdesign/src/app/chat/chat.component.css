@@ -3,11 +3,15 @@
     width: 800px;
     border: 1px dotted black;
     text-align: center;
+   justify-content: center;
+   align-items: center;
+   margin-left: 300px;
 }
 .commentarios{
     height: 50px;
     width: 100px;
 }
-body{
-    align-content: center;
+
+.content{
+    justify-content: center;
 }
