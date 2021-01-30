@@ -23,7 +23,20 @@ app.get('/',(req,res)=>{
     version:'1.0.0'
    })
 })
-app.use('./public/storage/imgs',express.static(path.resolve('public')))
+/*app.use(multer({
+    dest:path.join(__dirname,'../public/storage/imgs'),
+    fileFilter:(req,file,cb)=>{
+        const filetypes = /pdf|jpg|jpeg|xlsx|docx|png|svg/;
+        const mimetype = filetypes.test(file.mimetype);
+        const extname = filetypes.test(path.extname(file.originalname));
+        if(mimetype && extname){
+            return cb(null,true)
+        }else{
+            cb("Error:archivo con extension incorrecta");
+        }
+    }
+}).single('archivo'));*/
+app.use('./public/storage/imgs',express.static('./public/storage/imgs'))
 app.use('/api/auth',authRoutes);
 app.use('/api/tasks',tasksRouter);
 app.use('/api/users',usersRoutes);

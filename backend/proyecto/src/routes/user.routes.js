@@ -7,6 +7,6 @@ import { single } from '../libs/storage';
 import {authJwt,verifySignup} from '../middlewares'
 
 
-router.post('/addcomment',upload.single('file'),upload.single('filename'),userCtrl.addComment);
+router.post('/addcomment',upload.single('archivo'),userCtrl.addComment);
 router.get('/getchat',userCtrl.GetComments);
 export default router;
