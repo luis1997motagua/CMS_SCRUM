@@ -5,6 +5,7 @@ import {FormGroup,FormControl,Validators,FormBuilder} from '@angular/forms'
 import {FormsModule} from '@angular/forms';
 import {NgForm} from '@angular/forms';
 import swat from 'sweetalert2';
+import { isEmpty } from 'rxjs/operators';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -23,7 +24,7 @@ export class ChatComponent implements OnInit {
   }
   
   addComment(){
-    if(this.comentario == ''){
+    if(this.comentario == null || this.comentario==''){
        swat.fire({
         icon: 'error',
         title: 'Oops...',

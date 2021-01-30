@@ -5,6 +5,7 @@ import {createRoles} from './libs/initialSetup'
 import authRoutes from './routes/auth.routes'
 import tasksRouter from './routes/tasks.routes'
 import usersRoutes from './routes/user.routes'
+
 import cors from 'cors'
 const path = require('path');
 const multer = require('multer');
@@ -16,7 +17,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 //app.use('/public',express.static(`${__dirname}/uploads`));
-
 app.get('/',(req,res)=>{
     res.json({author:'luis lagos',
     description:'proyecto graduacion',
