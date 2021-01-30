@@ -2,14 +2,17 @@ var mongoose = require('mongoose');
 import Chat from '../models/Chat';
 
 
+
+
 export const addComment = async(req,res) =>{
-    const {username,comentario,fechahora} = req.body;
+    const {username,comentario,archivo,fechahora} = req.body;
     const newComment = new Chat({
         username,
         comentario,
-        archivo:"",
+        archivo,
         fechahora
     });
+
     const saveComment = await newComment.save();
     res.status(200).json({message:"comentario ingresado con exito"});
 }

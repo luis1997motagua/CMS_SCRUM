@@ -15,6 +15,7 @@
           <br/>
               {{comment.comentario}}
             <br/>
+            <b><label>Archivo: <a href=""  download="{{comment.archivo}}">{{comment.archivo}}</a></label></b>
             </p>
           </cdk-virtual-scroll-viewport>
    <br/>
@@ -25,8 +26,5 @@
       <button type="submit" (click)="addComment()" class="ui blue labeled submit icon button" style="margin-left: 500px;">
         <i class="icon edit"></i> Comentar
       </button>
-      <button type="submit"   class="ui green labeled submit icon button" style="margin-left: 100px;">
-        <i class="upload icon"></i>Subir
-      </button>
-
+      <input type="file"  style=" margin-left: 80px;" [(ngModel)]="archivo">
 </body>

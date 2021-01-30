@@ -13,7 +13,7 @@ import swat from 'sweetalert2';
 export class ChatComponent implements OnInit {
 
   allComments;
-  archivo:any='';
+  archivo;
   comentario;
   constructor(public dataservice:DataService) { }
 
@@ -43,6 +43,7 @@ export class ChatComponent implements OnInit {
         }
       });
       this.comentario = '';
+      this.allComments =  this.dataservice.getAllComments();
     }
  
     
