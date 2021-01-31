@@ -1,31 +1,21 @@
 import {Schema,model} from 'mongoose'
 const userSchema = new Schema({
-    username:{
+    titulo:{
       type:String,
-      required:true
+      required:true,
+      unique:true
     },
     actividades:{
         type:[String],
         required:true
     },
-    fechainicio:{
+    estado:{
         type:String,
         required:true
     },
-    fechafinalizacion:{
+    encargado:{
         type:String,
-        required:true
-    },
-    tipoactividad:{
-        type:String,
-        required:true
-    },
-    coloractividad:{
-        type:String,
-        required:true
-    },
-    fechacumplimiento:{
-        type:String
+        default:""
     }
  },
  {

@@ -23,6 +23,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ChatComponent } from './chat/chat.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { TasksComponent } from './tasks/tasks.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path:'chat',
     component:ChatComponent
+  },
+  {
+    path:'tasks',
+    component:TasksComponent
   }
 ];
 @NgModule({
@@ -74,7 +79,8 @@ const routes: Routes = [
     MenuComponent,
     MantenimientoComponent,
     ViewusersComponent,
-    ChatComponent
+    ChatComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,

@@ -51,7 +51,6 @@ export class RegistroService {
       return this.httpClient.post(`${this.backendHost}/signin`,{"username":username,"password":password},{headers:this.cuerpo}) .subscribe((resp: any) => {
         this.router.navigateByUrl('mantenimiento');
         localStorage.setItem('auth_token', resp.token);
-        localStorage.setItem('_id',resp.signed_user);
         localStorage.setItem('username',resp.user);
         },
         error=>{

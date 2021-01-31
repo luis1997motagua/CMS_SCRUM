@@ -77,7 +77,7 @@ export const signUp = async(req,res)=>{
         const foundRoles = await Role.find({name:{$in:roles}})
         newUser.roles = foundRoles.map(role=>role._id)
      }else{
-         const role = await Role.findOne({name:"user"})
+         const role = await Role.findOne({name:"Encargado"})
          newUser.roles = [role._id];
      }
     const saveUser = await newUser.save();
@@ -156,7 +156,6 @@ export const signIn = async(req,res)=>{
     })
     res.status(200).send({
         user:username,
-        signed_user:userFound._id,
         token:token        
      });
      //next();
