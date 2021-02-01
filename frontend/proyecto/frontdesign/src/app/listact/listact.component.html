@@ -1,1 +1,31 @@
-<p>listact works!</p>
+<app-menu></app-menu>
+<body>
+    <div class="main-container">
+        <br/>
+        <h3>Listado de Actividades</h3>
+        <br/>
+        <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Titulo</th>
+                <th>Actividades</th>
+                <th>Encargado</th>
+                <th>Estado</th>
+                <th>Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tasks of allTasks | async">
+                <td>{{tasks.titulo}}</td>
+                <td>{{tasks.actividades}}</td>
+                <td>{{tasks.encargado}}</td>
+                <td>{{tasks.estado}}</td>  
+                <td>
+                    <button class="ui small red button" (click)="RemoveTask(tasks._id)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+    </div>
+</body>
+<app-footer></app-footer>

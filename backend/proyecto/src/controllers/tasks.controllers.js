@@ -14,6 +14,18 @@ export const createTask = async(req,res)=>{
     const saveTask = newTask.save();
     res.status(200).json({message:"tarea creada con exito"});
 }
+export const GetAllTasks = async(req,res)=>{
+    const gettasks = await Tasks.find();
+    res.send(gettasks);
+}
+
+export const DeleteTask = async(req,res)=>{
+    let id = req.params._id;
+    let filter = {"_id":mongoose.Types.ObjectId(id)};
+    const deletetask = await Tasks.deleteOne(filter);
+    res.status(200).json({message:"Tarea eliminada con exito"});
+}
+
 export const cumplioActividad = async(req,res)=>{
 
 }

@@ -25,9 +25,17 @@ export class MantenimientoService {
  public deleteUser(id):Observable<any>{
    return this.httpclient.delete(`${this.urlApi}/remove-user/${id}`);
  }
+
+ public deleteTask(id):Observable<any>{
+    return this.httpclient.delete(`${this.urlTask}/delete-one-task/${id}`);
+ }
  
  public addTask(titulo:string,actividades:Array<any>,estado:string,encargado:string){
     return this.httpclient.post(`${this.urlTask}/create-task`,{"titulo":titulo,"actividades":actividades,"estado":estado,"encargado":encargado},{headers:this.cuerpo});
+ }
+
+ public getAllTasks():Observable<any>{
+    return this.httpclient.get(`${this.urlTask}/get-all-tasks`);
  }
 
 }

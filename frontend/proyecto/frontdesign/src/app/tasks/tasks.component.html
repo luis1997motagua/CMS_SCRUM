@@ -14,9 +14,10 @@
           <textarea cols="50" rows="5" [(ngModel)]="actividades"></textarea>
           <br>
           <br>
-          <b><label>Estado: </label></b>
-          <select class="ui small search dropdown" [(ngModel)]="estado">
-            <option value="Cumplida" selected>Cumplida</option>
+          <b><label>Estado: </label></b>  
+          <select class="ui tiny dropdown" [(ngModel)]="estado">
+            <option value="">Seleccione una opción</option>
+            <option value="Cumplida">Cumplida</option>
             <option value="No Cumplida">No Cumplida</option>
             <option value="No Aplica">No Aplica</option>
           </select>
@@ -32,7 +33,7 @@
           <button class="ui teal button" (click)="NewTask()" style="margin-left: 60px;">
             Agregar
           </button>
-          <button class="ui violet button" style="margin-left: 80px;">
+          <button class="ui violet button" style="margin-left: 80px;" routerLink="/listact">
              Ver Lista
           </button>
     </div>

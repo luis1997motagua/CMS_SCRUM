@@ -18,7 +18,7 @@ export class TasksComponent implements OnInit {
   }
 
   NewTask():void{
-    if(this.titulo =='' && this.actividades == '' && this.estado == ''){
+    if(this.titulo == '' && this.actividades == '' && this.estado == '' && this.encargado==''){
       swat.fire({
         icon: 'error',
         title: 'Oops...',
