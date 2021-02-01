@@ -10,6 +10,7 @@ export class MantenimientoService {
   constructor(public httpclient:HttpClient) { }
 
   private urlApi:string = 'http://localhost:4000/api/auth';
+  private urlTask:string = 'http://localhost:4000/api/tasks';
   cuerpo:any = new HttpHeaders().set('Content-Type','application/json');
   user:Users[];
 
@@ -23,6 +24,10 @@ export class MantenimientoService {
 
  public deleteUser(id):Observable<any>{
    return this.httpclient.delete(`${this.urlApi}/remove-user/${id}`);
+ }
+ 
+ public addTask(titulo:string,actividades:Array<any>,estado:string,encargado:string){
+    return this.httpclient.post(`${this.urlTask}/create-task`,{"titulo":titulo,"actividades":actividades,"estado":estado,"encargado":encargado},{headers:this.cuerpo});
  }
 
 }

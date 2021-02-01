@@ -1,27 +1,40 @@
 <app-menu></app-menu>
 <body>
     <div class="main-content">
-        <div class="ui input focus">
+    <h3>Manejo de Actividades</h3>
+    <br/>
+            <div class="ui input focus">
          <b><label>Titulo Actividad: </label></b>
-            <input type="text" placeholder="Search..." style="margin-left: 40px;">
+            <input type="text"  style="margin-left: 40px;" [(ngModel)]="titulo">
           </div>
           <br/>
           <br/>
           <b><label>Lista Actividades: </label></b>
           <br/>
-          <textarea cols="50" rows="5"></textarea>
+          <textarea cols="50" rows="5" [(ngModel)]="actividades"></textarea>
           <br>
           <br>
           <b><label>Estado: </label></b>
-          <select class="ui small search dropdown" name="card[expire-month]">
-            <option value="Cumplida">Cumplida</option>
+          <select class="ui small search dropdown" [(ngModel)]="estado">
+            <option value="Cumplida" selected>Cumplida</option>
             <option value="No Cumplida">No Cumplida</option>
             <option value="No Aplica">No Aplica</option>
           </select>
+            <br>
+            <br>
+            <div class="ui input focus">
+              <b><label>Auditor(a): </label></b>
+              <input type="text"  style="margin-left: 20px;" [(ngModel)]="encargado">
+              </div>
           <br>
-          <br>
-          <div class="ui input focus">
-          <b><label>Asignar Actividad a: </label></b>
-          </div>
+          <br>    
+          <br> 
+          <button class="ui teal button" (click)="NewTask()" style="margin-left: 60px;">
+            Agregar
+          </button>
+          <button class="ui violet button" style="margin-left: 80px;">
+             Ver Lista
+          </button>
     </div>
 </body>
+<app-footer></app-footer>
