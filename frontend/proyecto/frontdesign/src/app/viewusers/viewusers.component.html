@@ -4,15 +4,6 @@
         <h2>Lista de Usuarios Registrados</h2>
         <br/>
         <br/>
-        <b><label style="margin-left: 560px;">Email: </label></b>
-        <br/>
-        <div class="ui left icon input" style="margin-left: 560px;">
-          <input type="email" placeholder="escriba correo a buscar" [(ngModel)]="emailsearch" required>
-          <i class="search icon"></i>
-          <button type="submit" (click)="searchUserByEmail()" class="ui large green button" style="margin-left: 30px;">
-            Buscar
-          </button>
-        </div>
         <br/>
         <br/>
         <table class="ui celled table">
@@ -25,11 +16,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users">
+              <tr *ngFor="let user of users | async">
                 <td>{{user._id}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.email}}</td>
-                <td><button (click)="RemoveUserfromSystem(user._id)" class="ui large red button">Delete</button></td>
+                <td><button (click)="RemoveUserfromSystem(user._id)" class="ui large red button">Eliminar</button></td>
               </tr>
             </tbody>
           </table> 

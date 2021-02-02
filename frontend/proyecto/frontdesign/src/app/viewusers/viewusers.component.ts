@@ -13,67 +13,37 @@ export class ViewusersComponent implements OnInit {
 
   constructor(public mantservice:MantenimientoService, private route: ActivatedRoute) { }
 
-  emailsearch="";
+
   users;
-  currentUser=null
+ 
 
   
 
   ngOnInit(): void {
   
-
+    this.users = this.mantservice.getAllUsers();
+    
   }
 
   RemoveUserfromSystem(id):void{
     swat.fire({
-        title: 'Eliminar usuario',
-        text: "¿Desea eliminar este usuario del sistema?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.mantservice.deleteUser(id).subscribe();
-          this.users = null;
-          this.emailsearch = '';
-          swat.fire(
-            '!Eliminado!',
-            'Usuario eliminado del sistema',
-            'success'
-          )
-        }
-        else{
-          this.users = null;
-          this.emailsearch = '';
-        }
-      })
+      title: 'Eliminar usuario',
+      text: "¿Desea eliminar este usuario del sistema?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.mantservice.deleteUser(id).subscribe();
+        alert('!usuario eliminado con exito!');
+        window.location.reload();    
+      }
+    });
   }
   
-  searchUserByEmail():void{
-    if(this.emailsearch==''){
-      swat.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: '!No puede dejar vacios los campos!'
-      });
-    }
-    else{
-           this.mantservice.getOneUser(this.emailsearch).subscribe(
-             data => {
-               this.users = Array.of(data);
-               console.log(data);
-             },
-             error=>{
-              swat.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '!No existe ese usuario!'
-              });
-             });
-      }
-  }
+  
   /* Obtener valores de la URL para el req.params
   const id = this.route.snapshot.paramMap.get('id');
   */

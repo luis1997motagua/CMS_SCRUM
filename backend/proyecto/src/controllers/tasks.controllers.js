@@ -26,8 +26,8 @@ export const DeleteTask = async(req,res)=>{
     res.status(200).json({message:"Tarea eliminada con exito"});
 }
 
-export const cumplioActividad = async(req,res)=>{
-
+export const CambiarEstadoActividad = async(req,res)=>{
+   
 }
 
 export const UserTaskAsigned = async(req,res)=>{

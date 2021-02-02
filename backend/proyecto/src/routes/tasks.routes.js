@@ -7,5 +7,5 @@ router.get('/get-all-tasks',tasksCtrl.GetAllTasks);
 router.delete('/delete-one-task/:_id',tasksCtrl.DeleteTask);
 router.post('/create-task',tasksCtrl.createTask);
 router.post('/asign-task',tasksCtrl.UserTaskAsigned);
-router.put('/si-cumplio-tarea',tasksCtrl.cumplioActividad);
+router.put('/cambiar-estado',tasksCtrl.CambiarEstadoActividad);
 export default router;

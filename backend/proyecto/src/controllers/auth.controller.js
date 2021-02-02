@@ -64,6 +64,11 @@ export const getOneUser = async(req,res)=>{
 }
 
 
+export const getAllUsers = async(req,res)=>{
+    const users =  await User.find();
+    res.send(users);
+}
+
 export const signUp = async(req,res)=>{
    
     const {username, email, password, roles} = req.body;
