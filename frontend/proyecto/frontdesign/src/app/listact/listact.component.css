@@ -2,3 +2,6 @@ h3{
     text-align: center;
     color:yellow;
 }
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 4%, rgba(2,0,36,1) 17%, rgba(121,9,115,1) 30%, rgba(201,137,196,1) 46%, rgba(102,40,137,1) 81%, rgba(110,27,123,1) 83%, rgba(121,10,105,1) 93%, rgba(0,212,255,1) 100%);
+}

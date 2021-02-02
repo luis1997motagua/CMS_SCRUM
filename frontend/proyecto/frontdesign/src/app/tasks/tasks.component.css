@@ -3,5 +3,11 @@
     margin-top:40px;
 }
 body{
-   background-color: #fff333;
+    background: linear-gradient(90deg, rgba(121,120,9,1) 2%, rgba(2,0,36,1) 4%, rgba(206,164,163,1) 23%, rgba(201,137,196,1) 48%, rgba(218,232,79,1) 70%, rgba(102,40,137,1) 98%, rgba(110,27,123,1) 100%, rgba(111,25,121,1) 100%, rgba(121,10,105,1) 100%, rgba(0,212,255,1) 100%);
+}
+label{
+    color:yellow;
+}
+h3{
+    color: yellow;
 }
