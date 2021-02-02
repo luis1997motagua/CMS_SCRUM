@@ -20,7 +20,10 @@
                 <td>{{user._id}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.email}}</td>
-                <td><button (click)="RemoveUserfromSystem(user._id)" class="ui large red button">Eliminar</button></td>
+                <td>
+                  <button (click)="RemoveUserfromSystem(user._id)" class="ui large red button">Eliminar</button>
+                  <button routerLink="/assignments" class="ui large secondary button">Asignar</button>
+                </td>
               </tr>
             </tbody>
           </table> 

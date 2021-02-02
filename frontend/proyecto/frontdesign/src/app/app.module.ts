@@ -25,6 +25,7 @@ import { ChatComponent } from './chat/chat.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { TasksComponent } from './tasks/tasks.component';
 import { ListactComponent } from './listact/listact.component';
+import { AssignmentsComponent } from './assignments/assignments.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path:'listact',
     component:ListactComponent
+  },
+  {
+   path:'assignments',
+   component:AssignmentsComponent 
   }
 ];
 @NgModule({
@@ -86,7 +91,8 @@ const routes: Routes = [
     ViewusersComponent,
     ChatComponent,
     TasksComponent,
-    ListactComponent
+    ListactComponent,
+    AssignmentsComponent
   ],
   imports: [
     BrowserModule,
