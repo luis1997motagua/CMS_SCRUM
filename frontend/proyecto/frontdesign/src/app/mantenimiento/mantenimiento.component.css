@@ -6,7 +6,7 @@ body{
    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(65,114,191,1) 18%, rgba(141,36,220,1) 78%, rgba(0,212,255,1) 100%);
 }
 label{
-    color:yellow;
+    color:black;
 }
 h2{
     text-align: center;
