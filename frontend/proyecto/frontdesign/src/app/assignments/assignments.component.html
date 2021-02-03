@@ -11,7 +11,7 @@
    <br/>
    <b><label>Titulo Actividad: </label></b>
    <select>
-      <option>Opcion</option>
+      <option *ngFor="let task of tareas | async" [value]="task.titulo">{{task.titulo}}</option>
    </select>
    <br/>
    <br/>
