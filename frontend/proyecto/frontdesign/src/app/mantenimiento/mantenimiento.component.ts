@@ -22,7 +22,7 @@ export class MantenimientoComponent implements OnInit {
 
  
   registarUser():void{
-     if(this.username == '' && this.email == '' && this.password == ''){
+     if(this.username =='' ||  this.email == '' ||  this.password == ''){
       swal.fire({
         icon: 'error',
         title: 'Oops...',

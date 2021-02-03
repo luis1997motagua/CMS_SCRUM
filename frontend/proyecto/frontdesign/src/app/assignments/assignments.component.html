@@ -3,31 +3,34 @@
   <div class="main-container">
     <h2>Asignación de Tareas</h2>
     <br/>
-    <div class="ui input focus">
       <b><label>Encargado: </label></b>
-         <input type="text"  style="margin-left: 40px;" >
-   </div>
+      <div class="ui input focus">
+       <input type="text" [(ngModel)]="username">
+      </div>
    <br/>
    <br/>
    <b><label>Titulo Actividad: </label></b>
-   <select>
-      <option *ngFor="let task of tareas | async" [value]="task.titulo">{{task.titulo}}</option>
-   </select>
+   <div class="ui input focus">
+      <input type="text" [(ngModel)]="titulo">
+   </div>
    <br/>
    <br/>
    <b><label>Fecha Inicio: </label></b>
-   <input type="date"/>
+   <input type="date" [(ngModel)]="fechainicio">
    <br/>
    <br/>
    <b><label>Fecha Finalización: </label></b>
-   <input type="date"/>
+   <input type="date" [(ngModel)]="fechafinal"/>
    <br/>
+   <br/>
+   <b><label>Cumplio antes de tiempo?</label></b>
+   <input type="checkbox" style="margin-left: 10px;">
    <br/>
    <b><label>Fecha Cumplimiento: </label></b> 
-   <input type="date" disabled/> <input type="checkbox" style="margin-left: 25px;">
+   <input type="date" disabled [(ngModel)]="fechacumplimiento"/>
    <br/>
   <br/>
-  <button class="ui large orange button">Asignar</button>
+  <button (click)="addUserTask()" class="ui large orange button">Asignar</button>
   </div>
 </body>
 <app-footer></app-footer>

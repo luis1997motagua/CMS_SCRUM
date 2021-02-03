@@ -43,11 +43,6 @@ export class ViewusersComponent implements OnInit {
     });
   }
   
-  
-  /* Obtener valores de la URL para el req.params
-  const id = this.route.snapshot.paramMap.get('id');
-  */
-
 
   
   

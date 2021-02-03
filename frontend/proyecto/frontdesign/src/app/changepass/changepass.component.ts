@@ -22,7 +22,7 @@ export class ChangepassComponent implements OnInit {
   }
   
   changePass():void{
-    if(this.emailchange == '' && this.passwordchange == ''){
+    if(this.emailchange == '' || this.passwordchange == ''){
       swal.fire({
         icon: 'error',
         title: 'Oops...',

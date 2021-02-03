@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit {
   }*/
   RegistroUsuario():void {
     
-   if(this.username == '' && this.password == '' && this.email == ''){
+   if(this.username == '' || this.password == '' || this.email == ''){
         swal.fire({
           icon: 'error',
           title: 'Oops...',

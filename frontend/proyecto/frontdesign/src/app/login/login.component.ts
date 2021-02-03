@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
   
   Entrar():void{
-    if(this.userlog == '' && this.passlog == ''){
+    if(this.userlog =='' ||  this.passlog ==''){
       swal.fire({
         icon: 'error',
         title: 'Oops...',
