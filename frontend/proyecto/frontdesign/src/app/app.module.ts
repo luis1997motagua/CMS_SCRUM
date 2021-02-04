@@ -5,6 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import {RouterModule,Routes} from '@angular/router';
+import { CalendarComponent  } from 'angular-customizable-calendar/calendar';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import {RegistroService} from './services/registro.service'
 import {ReactiveFormsModule} from '@angular/forms'
 import {AuthGuard} from './auth.guard';
+
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
@@ -24,8 +26,10 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ChatComponent } from './chat/chat.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { TasksComponent } from './tasks/tasks.component';
+import { CommonModule } from '@angular/common';
 import { ListactComponent } from './listact/listact.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { ViewtasksComponent } from './viewtasks/viewtasks.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -75,6 +79,10 @@ const routes: Routes = [
   {
    path:'assignments',
    component:AssignmentsComponent 
+  },
+  {
+    path:'viewtasks',
+    component:ViewtasksComponent
   }
 ];
 @NgModule({
@@ -92,13 +100,16 @@ const routes: Routes = [
     ChatComponent,
     TasksComponent,
     ListactComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    ViewtasksComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FullCalendarModule,
     HttpClientModule,
     FormsModule,
+    CalendarModule,
     ReactiveFormsModule,
     ScrollingModule,
     RouterModule.forRoot(routes),
