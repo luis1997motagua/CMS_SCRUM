@@ -34,4 +34,8 @@ export class DataService {
     "tarea":[titulo],"username":username,"fechainicio":fechainicio,"fechafinal":fechafinal},{headers:this.cuerpo});
    }
 
+   GetUserTasks():Observable<any>{
+    return this.httpclient.get(`${this.backendTask}/tareas`);
+   }
+
 }

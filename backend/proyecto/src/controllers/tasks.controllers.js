@@ -30,6 +30,10 @@ export const CambiarEstadoActividad = async(req,res)=>{
    
 }
 
+export const GetTaskAsigned = async(req,res)=>{
+    
+}
+
 export const UserTaskAsigned = async(req,res)=>{
     const {username,fechainicio,fechafinal,fechacumplimiento,tarea} = req.body
     const InserUserTask = new TaskUser({

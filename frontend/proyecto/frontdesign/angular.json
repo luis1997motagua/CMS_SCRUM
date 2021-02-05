@@ -29,8 +29,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fullcalendar/common/main.css",
               "node_modules/@fullcalendar/daygrid/main.css",
-              "node_modules/angular-calendar/css/angular-calendar.css",
-              "node_modules/angular-customizable-calendar/calendar"
+              "node_modules/angular-calendar/css/angular-calendar.css"
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
