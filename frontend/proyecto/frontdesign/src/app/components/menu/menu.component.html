@@ -7,8 +7,8 @@
             Usuarios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Añadir Usuario</a></li>
-            <li><a class="dropdown-item" href="#">Listado Usuarios</a></li>
+            <li><a class="dropdown-item" routerLink="/mantenimiento">Añadir Usuario</a></li>
+            <li><a class="dropdown-item" routerLink="/viewusers">Listado Usuarios</a></li>
           </ul>
         </li>
       
@@ -17,9 +17,10 @@
             Actividades
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Añadir Actividad</a></li>
-            <li><a class="dropdown-item" href="#">Ver Listado Actividades</a></li>
-            <li><a class="dropdown-item" href="#">Ver Listado Asignaciones</a></li>
+            <li><a class="dropdown-item" routerLink="/tasks">Añadir Actividad</a></li>
+            <li><a class="dropdown-item" routerLink="/assignments">Asignar Actividad</a></li>
+            <li><a class="dropdown-item" routerLink="/listact">Ver Listado Actividades</a></li>
+            <li><a class="dropdown-item" routerLink="/viewtasks">Ver Listado Asignaciones</a></li>
           </ul>
         </li>
       
@@ -28,8 +29,8 @@
            Chat
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Comentarios</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" routerLink="/chat">Comentarios</a></li>
+            <li><a class="dropdown-item" routerLink="/board">Tablero</a></li>
           </ul>
         </li>
         <button class="btn btn-outline-primary" (click)="logout()" type="submit">Logout</button>
