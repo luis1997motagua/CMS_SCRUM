@@ -38,4 +38,8 @@ export class DataService {
     return this.httpclient.get(`${this.backendTask}/tareas`);
    }
 
+   GetAsignedTasksBoard():Observable<any>{
+     return this.httpclient.get(`${this.backendTask}/asigns`);
+   }
+
 }

@@ -1,11 +1,13 @@
 import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
+import { arrow, start } from '@popperjs/core';
 import { CalendarView} from 'angular-calendar';
 import {CalendarEvent} from 'angular-calendar';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { startOfDay } from 'date-fns';
 import { isSameDay, isSameMonth } from 'date-fns';
-
+import { title } from 'process';
+import {DataService} from '../services/data.service';
 //import { CalendarOptions } from '@fullcalendar/angular';
 @Component({
   selector: 'app-board',
@@ -15,9 +17,14 @@ import { isSameDay, isSameMonth } from 'date-fns';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+
+  tasks;
+
+  constructor(public data:DataService) { }
 
   ngOnInit(): void {
+    
+    
   }
 
   
@@ -28,17 +35,17 @@ export class BoardComponent implements OnInit {
     this.view = view;
   }
 
-  events: CalendarEvent[] = [
+  /*events: CalendarEvent[] = [
     {
       start: startOfDay(new Date()),
-      title: 'all'
+      title: 'wl'
     },
     {
       start: startOfDay(new Date()),
       title: 'all',
     }
   ]
-
+*/
  /*let data=fromdb();
   for(let x of data)
   {
@@ -53,7 +60,7 @@ export class BoardComponent implements OnInit {
 
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    
+   
   }
 
 }

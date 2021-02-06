@@ -30,8 +30,18 @@ export const CambiarEstadoActividad = async(req,res)=>{
    
 }
 
-export const GetTaskAsigned = async(req,res)=>{
-    
+export const GetTasksAsigned = async(req,res)=>{
+    const r = await Tasks.aggregate([
+        {
+            $lookup:{
+                from: "taskusers",
+                localField : "_id",
+                foreignField : "tarea",
+                as : "tasks_asigned"
+            }
+        }
+    ])
+    res.send(r);
 }
 
 export const UserTaskAsigned = async(req,res)=>{

@@ -1,17 +1,15 @@
 <app-menu></app-menu>
 <body>
-  <div class="ui middle aligned animated list"  *ngFor="let task of tasks | async">
-    <div class="item">
-     <br/>
-      <div class="content">
-        <div class="header">
-        </div>
-        <hr/>
-        <b><p>Username: {{task.username}}</p></b>
-        <b><p>Fecha Finalizacion: {{task.fechafinal}}</p></b>
-        <b><pre>Actividades: {{task.tarea | json}}</pre></b>
+
+  <div class="list-group">
+    <a  class="list-group-item list-group-item-action " aria-current="true"  *ngFor="let task of tasks | async"> 
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Usuario: {{task.username}}</h5>
+        <small>3 days ago</small>
       </div>
-    </div>
+      <b><p class="mb-1">Fecha Cumplimiento: {{task.fechafinal}}</p></b>
+      <small><pre>Actividades: {{task.tarea | json}}</pre></small>
+    </a>
   </div>
 </body>
 <app-footer></app-footer>
