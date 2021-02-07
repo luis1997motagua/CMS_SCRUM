@@ -1,0 +1,13 @@
+<app-menu></app-menu>
+<body>
+    <div class="main-content">
+        <h3>ACTIVIDADES A CUMPLIR</h3>
+         <div class="content">
+             <br/>
+           <ol>
+               <li *ngFor="let t of tareas | async">{{t.titulo}}</li>
+           </ol>
+         </div>
+    </div>
+</body>
+<app-footer></app-footer>

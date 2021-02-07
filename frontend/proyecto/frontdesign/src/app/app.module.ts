@@ -30,6 +30,7 @@ import { CommonModule } from '@angular/common';
 import { ListactComponent } from './listact/listact.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { ViewtasksComponent } from './viewtasks/viewtasks.component';
+import { ActsComponent } from './acts/acts.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
     path:'viewtasks',
     component:ViewtasksComponent
+  },
+  {
+    path:'acts',
+    component:ActsComponent
   }
 ];
 @NgModule({
@@ -101,7 +106,8 @@ const routes: Routes = [
     TasksComponent,
     ListactComponent,
     AssignmentsComponent,
-    ViewtasksComponent
+    ViewtasksComponent,
+    ActsComponent
   ],
   imports: [
     BrowserModule,
