@@ -29,9 +29,8 @@ export class DataService {
    }
 
 
-   asignedTask(fechacumplimiento:string,titulo:string,username:string,fechainicio:string,fechafinal:string){
-     return this.httpclient.post(`${this.backendTask}/asign-task`,{"fechacumplimiento":fechacumplimiento,
-    "tarea":[titulo],"username":username,"fechainicio":fechainicio,"fechafinal":fechafinal},{headers:this.cuerpo});
+   asignedTask(titulo:string,username:string,fechainicio:string,fechafinal:string){
+     return this.httpclient.post(`${this.backendTask}/asign-task`,{"tarea":[titulo],"encargado":username,"fechainicio":fechainicio,"fechafinal":fechafinal},{headers:this.cuerpo});
    }
 
    GetUserTasks():Observable<any>{

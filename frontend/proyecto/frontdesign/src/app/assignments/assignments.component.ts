@@ -15,7 +15,6 @@ export class AssignmentsComponent implements OnInit {
   titulo;
   fechainicio;
   fechafinal;
-  fechacumplimiento;
   constructor(public mantenimiento:MantenimientoService, public dataservice:DataService) { }
 
   ngOnInit(): void {
@@ -33,13 +32,13 @@ export class AssignmentsComponent implements OnInit {
         text: '!No puede dejar vacios los campos!'
       });
     }else{
-      this.dataservice.asignedTask(this.fechacumplimiento,this.titulo,this.username,this.fechainicio,this.fechafinal).subscribe();
+      this.dataservice.asignedTask(this.titulo,this.username,this.fechainicio,this.fechafinal).subscribe();
       swat.fire('Asignacion de Tareas','!Tarea asignada con exito!','success');
       this.username = '';
       this.titulo = '';
       this.fechainicio = null;
       this.fechafinal = null;
-      this.fechacumplimiento=null;
+      
     }
   }
   

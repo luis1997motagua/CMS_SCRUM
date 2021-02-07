@@ -4,12 +4,11 @@ var mongoose = require('mongoose');
 
 export const createTask = async(req,res)=>{
 
-    const {titulo,actividades,estado,encargado} = req.body
+    const {titulo,actividades,auditor} = req.body
     const newTask = new Tasks({
         titulo,
         actividades,
-        estado,
-        encargado
+        auditor
     });
     const saveTask = newTask.save();
     res.status(200).json({message:"tarea creada con exito"});
@@ -45,12 +44,11 @@ export const GetTasksAsigned = async(req,res)=>{
 }
 
 export const UserTaskAsigned = async(req,res)=>{
-    const {username,fechainicio,fechafinal,fechacumplimiento,tarea} = req.body
+    const {encargado,fechainicio,fechafinal,tarea} = req.body
     const InserUserTask = new TaskUser({
-         username,
+         encargado,
          fechainicio,
          fechafinal,
-         fechacumplimiento
     });
     if(tarea){
         /*const foundRoles = await Role.find({name:{$in:roles}})

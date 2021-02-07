@@ -5,17 +5,17 @@ const userSchema = new Schema({
       required:true,
       unique:true
     },
-    actividades:{
-        type:[String],
-        required:true
-    },
     estado:{
         type:String,
         required:true
     },
-    auditor:{
+    fechacumplimiento:{
         type:String,
         default:""
+    },
+    color:{
+        type:String,
+        required:true
     }
  },
  {
@@ -24,4 +24,4 @@ const userSchema = new Schema({
  }
 );
 
-export default model("Tasks",userSchema);
+export default model("Taskstate",userSchema);

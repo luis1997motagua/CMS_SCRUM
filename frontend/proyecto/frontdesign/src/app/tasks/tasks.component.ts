@@ -9,7 +9,7 @@ import swat from 'sweetalert2';
 export class TasksComponent implements OnInit {
 
   constructor(public mantenimiento:MantenimientoService) { }
-  estado;
+
   actividades;
   encargado;
   titulo;
@@ -25,11 +25,11 @@ export class TasksComponent implements OnInit {
         text: '!No puede dejar vacios los campos!'
       });
     }else{
-      this.mantenimiento.addTask(this.titulo,this.actividades,this.estado,this.encargado).subscribe();
+      this.mantenimiento.addTask(this.titulo,this.actividades,this.encargado).subscribe();
       swat.fire('Nueva Tarea','!Actividad registrada con exito!','success');
       this.titulo='';
       this.actividades='';
-      this.estado='';
+   
       this.encargado='';
     }
   }

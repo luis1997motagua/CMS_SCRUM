@@ -1,6 +1,6 @@
 import {Schema,model} from 'mongoose'
 const TaskUserSchema = new Schema({
-    username:{
+    encargado:{
       type:String,
       required:true
     },
@@ -11,10 +11,6 @@ const TaskUserSchema = new Schema({
     fechafinal:{
         type:String,
         required:true
-    },
-    fechacumplimiento:{
-        type:String,
-        default:""
     },
     tarea : [{ type: Schema.Types.ObjectId, ref: 'Tasks' ,default:""}],
  },
