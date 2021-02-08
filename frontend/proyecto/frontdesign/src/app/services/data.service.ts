@@ -41,5 +41,7 @@ export class DataService {
      return this.httpclient.get(`${this.backendTask}/asigns`);
    }
 
-   
+   AsignedStateTask(titulo:string,estado:string,fechacumplimiento:string,color:any){
+     return this.httpclient.post(`${this.backendTask}/new-state-task`,{"titulo":titulo,"estado":estado,"fechacumplimiento":fechacumplimiento,"color":color},{headers:this.cuerpo});
+   }
 }

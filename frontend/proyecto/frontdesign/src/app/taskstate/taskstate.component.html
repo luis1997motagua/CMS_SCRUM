@@ -4,12 +4,12 @@
   <div class="main-container">
     <div class="ui input focus">
       <b><label>Tarea: </label></b>
-         <input type="text"  style="margin-left: 40px;">
+         <input type="text"  style="margin-left: 40px;" [(ngModel)]="titulo">
        </div>
        <br/>
        <b><label>Estado: </label></b>
        <div class="field">
-        <select class="ui tiny dropdown">
+        <select class="ui tiny dropdown" [(ngModel)]="estado">
           <option value="" selected>Seleccione una opción</option>
           <option value="No Cumplida">No Cumplida</option>
           <option value="Cumplida">Cumplida</option>
@@ -19,16 +19,16 @@
       <br/>
       <div class="ui input focus">
         <b><label>Fecha Cumplimiento: </label></b>
-           <input type="date"  style="margin-left: 40px;">
+           <input type="date"  style="margin-left: 40px;" [(ngModel)]="fechacumplimiento">
       </div>
       <br/>
       <div class="ui input focus">
         <b><label>Color: </label></b>
-           <input type="color"  style="margin-left: 40px;">
+           <input type="color"  style="margin-left: 40px;" [(ngModel)]="color">
       </div>
       <br/>
       <br/>
-      <button type="submit" class="ui small green button" style="margin-left: 10px;">
+      <button type="submit" (click)="StateTask()" class="ui small green button" style="margin-left: 10px;">
         Agregar
     </button>
     <button type="submit" class="ui small yellow button" style="margin-left: 10px;">

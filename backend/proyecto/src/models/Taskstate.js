@@ -2,12 +2,10 @@ import {Schema,model} from 'mongoose'
 const userSchema = new Schema({
     titulo:{
       type:String,
-      required:true,
       unique:true
     },
     estado:{
         type:String,
-        required:true
     },
     fechacumplimiento:{
         type:String,
@@ -15,7 +13,6 @@ const userSchema = new Schema({
     },
     color:{
         type:String,
-        required:true
     }
  },
  {
