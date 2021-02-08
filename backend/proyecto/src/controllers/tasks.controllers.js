@@ -42,9 +42,8 @@ export const CambiarEstadoActividad = async(req,res)=>{
     const titulo = req.params.titulo;
     const estado = req.params.estado;
     const fechacumplimiento = req.params.fechacumplimiento;
-    const color = req.params.color;
     let filter = {"titulo":titulo};
-    let update = {$set:{"fechacumplimiento":fechacumplimiento,"estado":estado,"color":color}};
+    let update = {$set:{"fechacumplimiento":fechacumplimiento,"estado":estado}};
     const updateTask = Taskstate.updateOne(filter,update);
     res.status(200).json({message:"tarea actualizada con exito"});
 }

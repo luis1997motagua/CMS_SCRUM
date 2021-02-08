@@ -22,5 +22,5 @@ router.delete('/delete-one-task/:_id',tasksCtrl.DeleteTask);
 router.post('/new-state-task',tasksCtrl.AgregarEstadoTarea);
 router.post('/create-task',tasksCtrl.createTask);
 router.post('/asign-task',tasksCtrl.UserTaskAsigned);
-router.patch('/cambiar-estado/:titulo/:fechacumplimiento/:estado/:color',tasksCtrl.CambiarEstadoActividad);
+router.patch('/cambiar-estado/:titulo/:fechacumplimiento/:estado',tasksCtrl.CambiarEstadoActividad);
 export default router;
