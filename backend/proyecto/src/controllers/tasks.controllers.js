@@ -60,6 +60,12 @@ export const GetTasksAsigned = async(req,res)=>{
     res.send(r);
 }
 
+
+export const ViewFilterState = async(req,res)=>{
+    const search = await Taskstate.find();
+    res.send(search);
+}
+
 export const UserTaskAsigned = async(req,res)=>{
     const {encargado,fechainicio,fechafinal,tarea} = req.body
     const InserUserTask = new TaskUser({

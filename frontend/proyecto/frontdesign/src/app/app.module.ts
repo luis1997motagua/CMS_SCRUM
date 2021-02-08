@@ -32,6 +32,7 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { ViewtasksComponent } from './viewtasks/viewtasks.component';
 import { ActsComponent } from './acts/acts.component';
 import { TaskstateComponent } from './taskstate/taskstate.component';
+import { TaskstateviewComponent } from './taskstateview/taskstateview.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -93,6 +94,10 @@ const routes: Routes = [
   {
     path:'taskstate',
     component:TaskstateComponent
+  },
+  {
+    path:'taskstateview',
+    component:TaskstateviewComponent
   }
 ];
 @NgModule({
@@ -113,7 +118,8 @@ const routes: Routes = [
     AssignmentsComponent,
     ViewtasksComponent,
     ActsComponent,
-    TaskstateComponent
+    TaskstateComponent,
+    TaskstateviewComponent
   ],
   imports: [
     BrowserModule,

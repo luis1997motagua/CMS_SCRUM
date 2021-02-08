@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+<body>
+  <div class="main-container">
+    <br/>
+    <h3>Listado según Estado de Tareas</h3>
+    <br/>
+    <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Tarea</th>
+            <th>Estado</th>
+            <th>Fecha Cumplimiento</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let state of stateTasks | async">
+            <td>{{state.titulo}}</td>
+            <td>{{state.estado}}</td>
+            <td>{{state.fechacumplimiento}}</td>
+            <td>{{state.color}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</body>
+<app-footer></app-footer>

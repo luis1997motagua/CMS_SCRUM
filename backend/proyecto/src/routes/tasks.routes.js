@@ -16,6 +16,7 @@ router.get('/tareas',function(req,res){
 });
 
 router.get('/asigns',tasksCtrl.GetTasksAsigned);
+router.get('/view-states-tasks',tasksCtrl.ViewFilterState);
 router.get('/get-all-tasks',tasksCtrl.GetAllTasks);
 router.delete('/delete-one-task/:_id',tasksCtrl.DeleteTask);
 router.post('/new-state-task',tasksCtrl.AgregarEstadoTarea);
