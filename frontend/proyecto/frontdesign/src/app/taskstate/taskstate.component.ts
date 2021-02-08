@@ -35,7 +35,25 @@ export class TaskstateComponent implements OnInit {
       this.fechacumplimiento = null;
       this.color = null;
     }
-    
   }
+
+  UpdateTask():void{
+    if(this.titulo==''){
+      swat.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '!No puede dejar vacios los campos!'
+      });
+    }else{
+      this.dataservice.UpdateStateTask(this.titulo,this.estado,this.fechacumplimiento,this.color).subscribe();
+      swat.fire('Estado','!El estado de la tarea se actualizo con exito!','success');
+      this.titulo = '';
+      this.estado = '';
+      this.fechacumplimiento = null;
+      this.color = null;
+    }
+  }
+
+    
 
 }

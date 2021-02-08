@@ -3,6 +3,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {Observable, observable} from 'rxjs';
 import { isToday } from 'date-fns';
 import { th } from 'date-fns/locale';
+import { title } from 'process';
 @Injectable({
   providedIn: 'root'
 })
@@ -43,5 +44,9 @@ export class DataService {
 
    AsignedStateTask(titulo:string,estado:string,fechacumplimiento:string,color:any){
      return this.httpclient.post(`${this.backendTask}/new-state-task`,{"titulo":titulo,"estado":estado,"fechacumplimiento":fechacumplimiento,"color":color},{headers:this.cuerpo});
+   }
+
+   UpdateStateTask(titulo:string,estado:string,fechacumplimiento:string,color:any){
+      return this.httpclient.put(`${this.backendTask}/cambiar-estado`,{"titulo":titulo,"fechacumplimiento":fechacumplimiento,"estado":estado,"color":color},{headers:this.cuerpo});
    }
 }
