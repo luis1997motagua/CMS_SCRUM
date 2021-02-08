@@ -17,7 +17,7 @@
               <tr *ngFor="let tasks of allTasks | async">
                 <td>{{tasks.titulo}}</td>
                 <td>{{tasks.actividades}}</td>
-                <td>{{tasks.encargado}}</td> 
+                <td>{{tasks.auditor}}</td> 
                 <td>
                     <button class="ui small red button" (click)="RemoveTask(tasks._id)">Eliminar</button>
                     <button routerLink="/assignments" class="ui large secondary button">Asignar</button>

@@ -1,5 +1,6 @@
 import Tasks from '../models/Tasks'
 import TaskUser from '../models/Task-User'
+import Taskstate from '../models/Taskstate';
 var mongoose = require('mongoose'); 
 
 export const createTask = async(req,res)=>{
@@ -23,6 +24,18 @@ export const DeleteTask = async(req,res)=>{
     let filter = {"_id":mongoose.Types.ObjectId(id)};
     const deletetask = await Tasks.deleteOne(filter);
     res.status(200).json({message:"Tarea eliminada con exito"});
+}
+
+export const AgregarEstadoTarea = async(req,res)=>{
+       const {titulo,estado,fechacumplimiento,color}=req.body;
+       const newState = new Taskstate({
+           titulo,
+           estado,
+           fechacumplimiento,
+           color
+       });
+       const saveState = newState.save();
+       res.status(200).json({message:"succesfully"});
 }
 
 export const CambiarEstadoActividad = async(req,res)=>{

@@ -4,7 +4,7 @@
   <div class="list-group">
     <a  class="list-group-item list-group-item-action " aria-current="true"  *ngFor="let task of tasks | async"> 
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Usuario: {{task.username}}</h5>
+        <h5 class="mb-1">Usuario: {{task.encargado}}</h5>
         <small>3 days ago</small>
       </div>
       <b><p class="mb-1">Fecha Cumplimiento: {{task.fechafinal}}</p></b>

@@ -1,0 +1,39 @@
+<app-menu></app-menu>
+<body>
+  <h3>Estado de Tarea</h3>
+  <div class="main-container">
+    <div class="ui input focus">
+      <b><label>Tarea: </label></b>
+         <input type="text"  style="margin-left: 40px;">
+       </div>
+       <br/>
+       <b><label>Estado: </label></b>
+       <div class="field">
+        <select class="ui tiny dropdown">
+          <option value="" selected>Seleccione una opción</option>
+          <option value="No Cumplida">No Cumplida</option>
+          <option value="Cumplida">Cumplida</option>
+          <option value="No Aplica">No Aplica</option>
+        </select>
+      </div>
+      <br/>
+      <div class="ui input focus">
+        <b><label>Fecha Cumplimiento: </label></b>
+           <input type="date"  style="margin-left: 40px;">
+      </div>
+      <br/>
+      <div class="ui input focus">
+        <b><label>Color: </label></b>
+           <input type="color"  style="margin-left: 40px;">
+      </div>
+      <br/>
+      <br/>
+      <button type="submit" class="ui small green button" style="margin-left: 10px;">
+        Agregar
+    </button>
+    <button type="submit" class="ui small yellow button" style="margin-left: 10px;">
+      Cambiar Estado
+  </button>
+  </div>
+</body>
+<app-footer></app-footer>

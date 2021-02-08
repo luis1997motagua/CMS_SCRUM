@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       this.registro.login(this.userlog,this.passlog);
       this.userlog='';
       this.passlog='';
+      //this.router.navigateByUrl('/acts');
     }
     /*this.registro.login(form).subscribe(res=>{
       this.router.navigateByUrl('/board');

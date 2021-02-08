@@ -9,10 +9,6 @@ const userSchema = new Schema({
         type:[String],
         required:true
     },
-    estado:{
-        type:String,
-        required:true
-    },
     auditor:{
         type:String,
         default:""
