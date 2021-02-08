@@ -39,7 +39,10 @@ export const AgregarEstadoTarea = async(req,res)=>{
 }
 
 export const CambiarEstadoActividad = async(req,res)=>{
-    const {titulo,estado,fechacumplimiento,color} = req.body;
+    const titulo = req.params.titulo;
+    const estado = req.params.estado;
+    const fechacumplimiento = req.params.fechacumplimiento;
+    const color = req.params.color;
     let filter = {"titulo":titulo};
     let update = {$set:{"fechacumplimiento":fechacumplimiento,"estado":estado,"color":color}};
     const updateTask = Taskstate.updateOne(filter,update);
