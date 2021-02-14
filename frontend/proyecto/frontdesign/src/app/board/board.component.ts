@@ -8,6 +8,7 @@ import { startOfDay } from 'date-fns';
 import { isSameDay, isSameMonth } from 'date-fns';
 import { title } from 'process';
 import {DataService} from '../services/data.service';
+import { colors } from '../models/colors';
 //import { CalendarOptions } from '@fullcalendar/angular';
 @Component({
   selector: 'app-board',
@@ -58,9 +59,41 @@ export class BoardComponent implements OnInit {
     ]
   }*/
 
+  events: CalendarEvent[] = [
+    {
+      title: 'Mantenimiento MongoDb',
+      color: colors.yellow,
+      start: new Date(),
+    },
+    {
+      title: 'Revisar Updates',
+      color: colors.blue,
+      start: new Date(),
+    },
+    {
+      title: 'Cambio de Logo',
+      color: colors.red,
+      start: new Date("2/15/2021"),
+    },
+    {
+      title: 'Mostrar Lista Usuarios',
+      color: colors.blue,
+      start: new Date("2/22/2021"),
+    },
+    {
+      title: 'Pruebas Unitarias',
+      color: colors.red,
+      start: new Date("2/22/2021"),
+    },
+    {
+      title: 'Insertar Margenes',
+      color: colors.blue,
+      start: new Date(),
+    }
+  ];
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-   
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    console.log('Event clicked', event);
   }
 
 }
