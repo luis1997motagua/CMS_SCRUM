@@ -46,8 +46,8 @@ export class DataService {
      return this.httpclient.post(`${this.backendTask}/new-state-task`,{"titulo":titulo,"estado":estado,"fechacumplimiento":fechacumplimiento,"color":color},{headers:this.cuerpo});
    }
 
-   UpdateStateTask(titulo:string,estado:string,fechacumplimiento:string){
-      return this.httpclient.patch(`${this.backendTask}/cambiar-estado/:${titulo}/:${fechacumplimiento}/:${estado}`,{},{headers:this.cuerpo});
+   UpdateStateTask(titulo:string,estado:string,fechacumplimiento:string,color:any){
+      return this.httpclient.put(`${this.backendTask}/cambiar-estado`,{"titulo":titulo,"estado":estado,"fechacumplimiento":fechacumplimiento,"color":color},{headers:this.cuerpo});
    }
 
    GetStateTask():Observable<any>{

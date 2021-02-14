@@ -45,7 +45,7 @@ export class TaskstateComponent implements OnInit {
         text: '!No puede dejar vacios los campos!'
       });
     }else{
-      this.dataservice.UpdateStateTask(this.titulo,this.estado,this.fechacumplimiento).subscribe();
+      this.dataservice.UpdateStateTask(this.titulo,this.estado,this.fechacumplimiento,this.color).subscribe();
       swat.fire('Estado','!El estado de la tarea se actualizo con exito!','success');
       this.titulo = '';
       this.estado = '';
