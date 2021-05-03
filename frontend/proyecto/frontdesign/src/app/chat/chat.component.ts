@@ -45,6 +45,7 @@ export class ChatComponent implements OnInit {
       });
       this.comentario = '';
       this.allComments =  this.dataservice.getAllComments();
+      window.location.reload();
     }
  
     
