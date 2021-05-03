@@ -9,6 +9,7 @@ import {DataService} from '../services/data.service';
 })
 export class ViewtasksComponent implements OnInit {
  
+  
   tasks;
   constructor(public data:DataService) { }
 

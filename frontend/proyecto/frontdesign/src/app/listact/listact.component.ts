@@ -20,8 +20,8 @@ export class ListactComponent implements OnInit {
   RemoveTask(id):void{
   
     swat.fire({
-      title: 'Eliminar usuario',
-      text: "¿Desea eliminar este usuario del sistema?",
+      title: 'Eliminar tarea',
+      text: "¿Desea eliminar tarea?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
