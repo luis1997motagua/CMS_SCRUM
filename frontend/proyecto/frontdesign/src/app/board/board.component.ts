@@ -61,34 +61,14 @@ export class BoardComponent implements OnInit {
 
   events: CalendarEvent[] = [
     {
-      title: 'Mantenimiento MongoDb',
-      color: colors.yellow,
-      start: new Date(),
-    },
-    {
-      title: 'Revisar Updates',
+      title: 'Testing Unitario',
       color: colors.blue,
-      start: new Date(),
+      start: new Date("5/2/2021"),
     },
     {
-      title: 'Cambio de Logo',
+      title: 'Conexion Mysql',
       color: colors.red,
-      start: new Date("2/15/2021"),
-    },
-    {
-      title: 'Mostrar Lista Usuarios',
-      color: colors.blue,
-      start: new Date("2/22/2021"),
-    },
-    {
-      title: 'Pruebas Unitarias',
-      color: colors.red,
-      start: new Date("2/22/2021"),
-    },
-    {
-      title: 'Insertar Margenes',
-      color: colors.blue,
-      start: new Date(),
+      start: new Date("5/2/2021"),
     }
   ];
 
