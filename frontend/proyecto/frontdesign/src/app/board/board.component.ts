@@ -63,12 +63,12 @@ export class BoardComponent implements OnInit {
     {
       title: 'Testing Unitario',
       color: colors.blue,
-      start: new Date("5/2/2021"),
+      start: new Date("5/3/2021"),
     },
     {
       title: 'Conexion Mysql',
       color: colors.red,
-      start: new Date("5/2/2021"),
+      start: new Date("5/3/2021"),
     }
   ];
 
